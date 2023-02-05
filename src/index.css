@@ -16,7 +16,8 @@
 
 body{
   font-family: 'Exo',sans-serif;
-  overflow: overlay
+  overflow: overlay;
+  overflow-x: hidden;
 }
 .metal{
   font-family: 'Metal Mania', cursive;
@@ -37,3 +38,9 @@ body{
   border-radius: 50px;
 }
 
+/* Slick Slider */
+.slick-track{
+  display: flex;
+  gap: 2rem;
+}
+/* Slick Slider */

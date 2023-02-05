@@ -34,7 +34,7 @@ const Navbar = () => {
       } z-[1] w-full fixed transition-all duration-500 py-4`}
     >
       <div className="flex justify-between mx-6 md:mx-0 md:justify-around items-center">
-        <Logo />
+        <Logo width={56} />
         <nav className="nav-items items-center gap-7 hidden md:flex">
           {NavItems.map((item) => {
             return (

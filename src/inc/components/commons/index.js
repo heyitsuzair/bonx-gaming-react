@@ -34,6 +34,7 @@ import Text9Xl from "./text/Text.9xl";
 import TextMd from "./text/Text.md";
 import TextSm from "./text/Text.sm";
 import TextError from "./text/Text.error";
+import TextShapped from "./text/Text.shapped";
 
 /**
  * Icons
@@ -116,6 +117,11 @@ import RadioGroup from "./radios/Radio.group";
  */
 import ProductsInfinite from "./infinite_scroll/ProductsInfinite";
 
+/**
+ * Carousels
+ */
+import CarouselVideo from "./carousels/Carousel.video";
+
 export {
   Logo,
   Navbar,
@@ -133,6 +139,7 @@ export {
   Text7Xl,
   Text9Xl,
   TextError,
+  TextShapped,
   IconPlain,
   IconTitled,
   IconHoverable,
@@ -159,4 +166,5 @@ export {
   RadioPlain,
   RadioGroup,
   ProductsInfinite,
+  CarouselVideo,
 };

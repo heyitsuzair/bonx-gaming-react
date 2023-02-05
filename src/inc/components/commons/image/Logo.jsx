@@ -13,7 +13,7 @@ const Logo = ({ height, width }) => {
 
   return (
     <>
-      <div className="hidden w-24 h-16 w-44"></div>
+      <div className="hidden w-24 h-16 w-44 w-56 w-28 h-20"></div>
       <img
         src={logo}
         alt="Loading..."

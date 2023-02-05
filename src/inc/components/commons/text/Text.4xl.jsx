@@ -2,7 +2,7 @@ import React from "react";
 
 const Text4Xl = ({ classes, text }) => {
   return (
-    <h1 className={`text-2xl md:text-4xl text-white ${classes ? classes : ""}`}>
+    <h1 className={`text-2xl md:text-4xl text-white ${classes || ""}`}>
       {text}
     </h1>
   );
