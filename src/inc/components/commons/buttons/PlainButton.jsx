@@ -50,25 +50,28 @@ const PlainButton = ({
   }
 
   return (
-    <button
-      type="button"
-      disabled={isDisabled}
-      onClick={onClick}
-      className={`b ${buttonSize} ${
-        buttonColor || ""
-      } ${textColor} transition-all duration-300 flex justify-center items-center ${buttonBorderRadius} ${buttonShadow} hover:opacity-50 disabled:opacity-60 bg-no-repeat bg-center bg-contain`}
-      style={{ backgroundImage: `url(${btnImage && btnImage})` }}
-    >
-      <span className={`text-center text-lg font-semibold`}>
-        {text}
+    <>
+      <div className="hidden w-44 w-52 w-40"></div>
+      <button
+        type="button"
+        disabled={isDisabled}
+        onClick={onClick}
+        className={`b ${buttonSize} ${
+          buttonColor || ""
+        } ${textColor} transition-all duration-300 flex justify-center items-center ${buttonBorderRadius} ${buttonShadow} hover:opacity-50 disabled:opacity-60 bg-no-repeat bg-center bg-contain`}
+        style={{ backgroundImage: `url(${btnImage && btnImage})` }}
+      >
+        <span className={`text-center text-lg font-semibold`}>
+          {text}
 
-        {icon && (
-          <>
-            &nbsp; <i className={`fa ${icon}`} aria-hidden="true"></i>
-          </>
-        )}
-      </span>
-    </button>
+          {icon && (
+            <>
+              &nbsp; <i className={`fa ${icon}`} aria-hidden="true"></i>
+            </>
+          )}
+        </span>
+      </button>
+    </>
   );
 };
 

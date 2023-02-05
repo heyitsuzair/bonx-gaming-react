@@ -22,7 +22,7 @@ const NavbarOffcanvas = ({ isOpen, setIsCanvasOpen }) => {
         className={`bg-secondary w-3/4 transition-all ${canvasState} duration-1000 ease-in-out h-screen top-0 fixed left-0 ${canvasState} `}
       >
         <div className="flex flex-row items-center m-6 justify-between">
-          <Logo width="24" height="16" />
+          <Logo width="44" height="16" />
           <button onClick={() => setIsCanvasOpen(!isOpen)}>
             <IconPlain classes="close text-white !text-3xl" />
           </button>
