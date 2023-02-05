@@ -20,7 +20,7 @@ const PlainButton = ({
    * Check What Size We Got As Prop And Than Set Size And Border Radius Accordingly
    */
   if (size && size === "large") {
-    buttonSize = `h-14 w-${isWidthFull ? "full" : "36"} md:h-16 md:w-${
+    buttonSize = `h-14 w-${isWidthFull ? "full" : "44"} md:h-16 md:w-${
       isWidthFull ? "full" : "44"
     }`;
     buttonBorderRadius = "rounded-xl";
