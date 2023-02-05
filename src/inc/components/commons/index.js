@@ -52,8 +52,7 @@ import InputPlain from "./inputs/Input.plain";
 /**
  * Cards
  */
-import CardIconTitleDescription from "./cards/Card.icon.title.description";
-import CardImageTitleDescriptionButton from "./cards/Card.image.title.description.button";
+import CardTitleDescription from "./cards/Card.title.description";
 import CardGame from "./cards/Card.game";
 
 /**
@@ -140,8 +139,7 @@ export {
   InputIconned,
   InputButtoned,
   InputPlain,
-  CardIconTitleDescription,
-  CardImageTitleDescriptionButton,
+  CardTitleDescription,
   CardGame,
   HeadingCircleLeft,
   GamesGrid,

@@ -17,6 +17,7 @@ const Hero = () => {
 
   return (
     <section
+      id="hero"
       className="relative z-0 h-screen md:h-[150vh] bg-no-repeat bg-center bg-cover bg-secondary"
       style={{ backgroundImage: `url(${HERO_PRIMARY_IMG})` }}
     >
@@ -29,8 +30,10 @@ const Hero = () => {
       </div>
       <div className="content h-screen md:h-[130vh]  flex items-center">
         <div className="flex flex-col gap-3 mx-10 md:mx-20">
-          <Text9Xl text="BEST GAME" classes="metal text-shadow mt-32 z-[1]" />
-          <Text9Xl text="PLAYING TODAY." classes="metal text-shadow z-[1]" />
+          <Text9Xl
+            text="BEST GAME PLAYING TODAY."
+            classes="metal text-shadow mt-32 z-[1] max-w-3xl"
+          />
           <Text2Xl
             text="Simply text of the printing and typesetting industry."
             classes="font-bold z-[1] my-8"

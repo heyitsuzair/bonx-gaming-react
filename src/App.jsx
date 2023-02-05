@@ -4,6 +4,7 @@ import { Navbar, ProgressBar } from "./inc/components/commons";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { RoutesPath } from "./inc/config";
 import { useState } from "react";
+import Body from "./Body";
 
 function App() {
   /**
@@ -12,7 +13,7 @@ function App() {
   const [progress, setProgress] = useState(0);
 
   return (
-    <div>
+    <Body>
       <ProgressBar progress={progress} />
       <Router>
         <Navbar />
@@ -20,7 +21,7 @@ function App() {
           <Route path={RoutesPath.home} element={<Home />} />
         </Routes>
       </Router>
-    </div>
+    </Body>
   );
 }
 
