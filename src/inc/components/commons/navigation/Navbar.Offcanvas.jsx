@@ -33,7 +33,7 @@ const NavbarOffcanvas = ({ isOpen, setIsCanvasOpen, onLinkClick }) => {
               <Link
                 key={item.path}
                 to={item.path}
-                onClick={() => onLinkClick()}
+                onClick={() => onLinkClick(item.path)}
               >
                 <Text4Xl text={item.text} classes="font-semibold" />
               </Link>
