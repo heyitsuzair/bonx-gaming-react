@@ -6,6 +6,8 @@ module.exports = {
       colors: {
         // Configure your color palette here
         secondary: "rgb(var(--color-secondary)/<alpha-value>)",
+        "secondary-90": "rgb(var(--color-secondary-90)/<alpha-value>)",
+        primary: "rgb(var(--color-primary)/<alpha-value>)",
       },
     },
   },

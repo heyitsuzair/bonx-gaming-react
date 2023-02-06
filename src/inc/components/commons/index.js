@@ -59,6 +59,7 @@ import CardGame from "./cards/Card.game";
  * Headings
  */
 import HeadingSection from "./headings/Heading.section";
+import HeadingSectionFancy from "./headings/Heading.section.fancy";
 
 /**
  * Grids
@@ -126,6 +127,11 @@ import CarouselVideo from "./carousels/Carousel.video";
  */
 import Counter from "./counters/Counter";
 
+/**
+ * Dividers
+ */
+import DividerPlain from "./dividers/Divider.plain";
+
 export {
   Logo,
   Navbar,
@@ -152,6 +158,7 @@ export {
   CardTitleDescription,
   CardGame,
   HeadingSection,
+  HeadingSectionFancy,
   GamesGrid,
   MainFooter,
   BreadcrumbTopPage,
@@ -171,4 +178,5 @@ export {
   ProductsInfinite,
   CarouselVideo,
   Counter,
+  DividerPlain,
 };

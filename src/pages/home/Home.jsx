@@ -1,6 +1,7 @@
 import React from "react";
 import Hero from "./Hero";
 import MostWelcome from "./MostWelcome";
+import PeopleSay from "./PeopleSay";
 import PopularGames from "./PopularGames";
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
         <MostWelcome />
         <PopularGames />
       </div>
+      <PeopleSay />
     </div>
   );
 };
