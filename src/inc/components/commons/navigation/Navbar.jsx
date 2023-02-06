@@ -5,10 +5,10 @@ import {
   PlainButton,
   TextLg,
 } from "../index";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { NavItems, RoutesPath } from "../../../config";
 import { useEffect, useState } from "react";
-const Navbar = () => {
+const Navbar = ({ setProgress }) => {
   // States
   const [isCanvasOpen, setIsCanvasOpen] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
@@ -17,10 +17,34 @@ const Navbar = () => {
    * RRD Helpers
    */
   const navigate = useNavigate();
+  const location = useLocation();
 
   const onWindowScroll = () => {
     const position = window.pageYOffset;
     position > 0 ? setIsScrolling(true) : setIsScrolling(false);
+  };
+
+  /**
+   * Triggers When Someone Clicks On Nav Item
+   */
+  const onLinkClick = (path) => {
+    path !== location.pathname && setProgress(30);
+    setIsCanvasOpen(false);
+  };
+  /**
+   * Triggers When Someone Clicks On Logo
+   */
+  const onLogoClick = () => {
+    RoutesPath.home !== location.pathname && setProgress(30);
+  };
+
+  /**
+   * Props For Offcanvas
+   */
+  const offcanvasProps = {
+    isOpen: isCanvasOpen,
+    setIsCanvasOpen: setIsCanvasOpen,
+    onLinkClick: onLinkClick,
   };
 
   useEffect(() => {
@@ -31,16 +55,20 @@ const Navbar = () => {
     <header
       className={`${
         isScrolling ? "bg-secondary" : "bg-inherit"
-      } z-[1] w-full fixed transition-all duration-500 py-4`}
+      } z-[2] w-full fixed transition-all duration-500 py-4`}
     >
       <div className="flex justify-between mx-6 md:mx-0 md:justify-around items-center">
-        <Link to={RoutesPath.home}>
+        <Link to={RoutesPath.home} onClick={() => onLogoClick()}>
           <Logo width={56} />
         </Link>
         <nav className="nav-items items-center gap-7 hidden md:flex">
           {NavItems.map((item) => {
             return (
-              <Link key={item.path} to={item.path}>
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => onLinkClick(item.path)}
+              >
                 <TextLg text={item.text} classes="font-semibold" />
               </Link>
             );
@@ -58,10 +86,7 @@ const Navbar = () => {
           <button onClick={() => setIsCanvasOpen(!isCanvasOpen)}>
             <IconPlain classes="bars text-white !text-2xl" />
           </button>
-          <NavbarOffcanvas
-            isOpen={isCanvasOpen}
-            setIsCanvasOpen={setIsCanvasOpen}
-          />
+          <NavbarOffcanvas {...offcanvasProps} />
         </div>
       </div>
     </header>

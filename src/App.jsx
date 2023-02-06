@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { RoutesPath } from "./inc/config";
 import { useState } from "react";
 import Body from "./Body";
+import { Contact } from "./pages/contact";
 
 function App() {
   /**
@@ -21,9 +22,16 @@ function App() {
     <Body>
       <ProgressBar progress={progress} />
       <Router>
-        <Navbar />
+        <Navbar setProgress={setProgress} />
         <Routes>
-          <Route path={RoutesPath.home} element={<Home />} />
+          <Route
+            path={RoutesPath.home}
+            element={<Home setProgress={setProgress} />}
+          />
+          <Route
+            path={RoutesPath.contact}
+            element={<Contact setProgress={setProgress} />}
+          />
         </Routes>
         <PreFooter />
         <MainFooter />

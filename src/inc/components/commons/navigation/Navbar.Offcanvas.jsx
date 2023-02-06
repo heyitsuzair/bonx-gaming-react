@@ -8,7 +8,7 @@ import Text4Xl from "../text/Text.4xl";
 import Logo from "../image/Logo";
 import PlainButton from "../buttons/PlainButton";
 
-const NavbarOffcanvas = ({ isOpen, setIsCanvasOpen }) => {
+const NavbarOffcanvas = ({ isOpen, setIsCanvasOpen, onLinkClick }) => {
   const canvasState = isOpen ? "-translate-x-0" : "-translate-x-full";
   const overlayState = !isOpen ? "hidden" : "fixed";
 
@@ -30,7 +30,11 @@ const NavbarOffcanvas = ({ isOpen, setIsCanvasOpen }) => {
         <nav className="flex flex-col gap-7 mx-6 mt-20">
           {NavItems.map((item) => {
             return (
-              <Link key={item.path} to={item.path}>
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => onLinkClick()}
+              >
                 <Text4Xl text={item.text} classes="font-semibold" />
               </Link>
             );
