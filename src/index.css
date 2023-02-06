@@ -45,4 +45,9 @@ body{
   display: flex;
   gap: 2rem;
 }
+@media(max-width:767px){
+  .slick-track{
+    gap: 0;
+  }
+}
 /* Slick Slider */

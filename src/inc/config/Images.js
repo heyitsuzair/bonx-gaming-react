@@ -25,6 +25,10 @@ export const Images = {
   carousel: {
     next: PATH + "navigation-arrow1.webp",
     prev: PATH + "navigation-arrow2.webp",
+
+    testimonial: {
+      index: PATH + "testimonial-thumb.webp",
+    },
   },
 
   // Cards

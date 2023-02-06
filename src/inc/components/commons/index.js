@@ -121,6 +121,7 @@ import ProductsInfinite from "./infinite_scroll/ProductsInfinite";
  * Carousels
  */
 import CarouselVideo from "./carousels/Carousel.video";
+import CarouselTestimonial from "./carousels/Carousel.testimonial";
 
 /**
  * Counters
@@ -131,6 +132,11 @@ import Counter from "./counters/Counter";
  * Dividers
  */
 import DividerPlain from "./dividers/Divider.plain";
+
+/**
+ * Testimonial
+ */
+import TestimonialPlain from "./testimonial/Testimonial.plain";
 
 export {
   Logo,
@@ -177,6 +183,8 @@ export {
   RadioGroup,
   ProductsInfinite,
   CarouselVideo,
+  CarouselTestimonial,
   Counter,
   DividerPlain,
+  TestimonialPlain,
 };
