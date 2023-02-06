@@ -30,10 +30,13 @@ body{
 }
 
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   border: 10px solid transparent;
+}
+::-webkit-scrollbar-track:hover {
+  border: 10px solid rgba(0,0,0.5,0.2);
 }
 ::-webkit-scrollbar-thumb {
   background: #b154f0;
