@@ -1,4 +1,5 @@
 import React from "react";
+import { Images } from "../../../config";
 
 const PlainButton = ({
   text,
@@ -33,7 +34,7 @@ const PlainButton = ({
    * Check Whether the button color is provided or not
    */
   if (!buttonColor) {
-    btnImage = "/img/btn.webp";
+    btnImage = Images.btn.bg;
   }
   /**
    * Check Whether the text color is provided or not

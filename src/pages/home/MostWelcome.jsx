@@ -3,17 +3,15 @@ import {
   CardTitleDescription,
   CarouselVideo,
   Counter,
+  HeadingSection,
   Text5Xl,
 } from "../../inc/components/commons";
 import { MostWelcomeCards } from "../../inc/config";
 
 const MostWelcome = () => {
   return (
-    <div id="most-welcome" className="py-20">
-      <Text5Xl
-        text="YOU ARE MOST WELCOME IN GAMING WORLD."
-        classes="font-bold max-w-3xl mx-auto text-center !leading-[5rem]"
-      />
+    <section id="most-welcome" className="py-20">
+      <HeadingSection text="YOU ARE MOST WELCOME IN GAMING WORLD." />
       <div className="flex flex-col lg:flex-row gap-4 items-center justify-center lg:justify-between md:my-16">
         {MostWelcomeCards.map((card) => {
           return <CardTitleDescription key={card.img} {...card} />;
@@ -36,7 +34,7 @@ const MostWelcome = () => {
           <Counter text="PRO TEAM" end={249} color="text-purple-500" />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

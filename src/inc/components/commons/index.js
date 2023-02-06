@@ -40,7 +40,6 @@ import TextShapped from "./text/Text.shapped";
  * Icons
  */
 import IconPlain from "./icons/Icon.plain";
-import IconHoverable from "./icons/Icon.hoverable";
 import IconTitled from "./icons/Icon.titled";
 
 /**
@@ -59,7 +58,7 @@ import CardGame from "./cards/Card.game";
 /**
  * Headings
  */
-import HeadingCircleLeft from "./headings/Heading.circle.left";
+import HeadingSection from "./headings/Heading.section";
 
 /**
  * Grids
@@ -147,13 +146,12 @@ export {
   TextShapped,
   IconPlain,
   IconTitled,
-  IconHoverable,
   InputIconned,
   InputButtoned,
   InputPlain,
   CardTitleDescription,
   CardGame,
-  HeadingCircleLeft,
+  HeadingSection,
   GamesGrid,
   MainFooter,
   BreadcrumbTopPage,

@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import Slider from "react-slick";
+import { Images } from "../../../config";
 import { TextShapped } from "../index";
 import CarouselArrows from "./Carousel.arrows";
 
@@ -22,10 +23,7 @@ const CarouselVideo = () => {
             style={{ backgroundImage: "url(/img/gaming-bg1.webp)" }}
           >
             <a href="//youtube.com" target="_blank">
-              <img
-                src="/img/play-btn.webp"
-                className="w-12 h-12 md:w-20 md:h-20"
-              />
+              <img src={Images.playBtn} className="w-12 h-12 md:w-20 md:h-20" />
               <span className="absolute top-[46.7%] left-1/2">
                 <span className="animate-ping -mt-6 -ml-10 inline-flex h-20 w-20 rounded-full bg-white opacity-50"></span>
               </span>
@@ -44,10 +42,7 @@ const CarouselVideo = () => {
             style={{ backgroundImage: "url(/img/gaming-bg1.webp)" }}
           >
             <a href="//youtube.com" target="_blank">
-              <img
-                src="/img/play-btn.webp"
-                className="w-12 h-12 md:w-20 md:h-20"
-              />
+              <img src={Images.playBtn} className="w-12 h-12 md:w-20 md:h-20" />
               <span className="absolute top-[46.7%] left-1/2">
                 <span className="animate-ping -mt-6 -ml-10 inline-flex h-20 w-20 rounded-full bg-white opacity-50"></span>
               </span>

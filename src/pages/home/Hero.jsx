@@ -1,15 +1,9 @@
 import React from "react";
 import { Text9Xl, Text2Xl, PlainButton } from "../../inc/components/commons";
 import { useNavigate } from "react-router-dom";
-import { RoutesPath } from "../../inc/config";
+import { Images, RoutesPath } from "../../inc/config";
 
 const Hero = () => {
-  // Hero BG Image
-  const HERO_PRIMARY_IMG =
-    "/img/hero-bg1-82fc7416624f7e54a222475671a5e21d.webp";
-  // Hero Image
-  const HERO_SECONDARY_IMG = "/img/hero-position-img.webp";
-
   /**
    * RRD Helpers
    */
@@ -19,11 +13,11 @@ const Hero = () => {
     <section
       id="hero"
       className="relative z-0 h-screen md:h-[150vh] bg-no-repeat bg-center bg-cover bg-secondary"
-      style={{ backgroundImage: `url(${HERO_PRIMARY_IMG})` }}
+      style={{ backgroundImage: `url(${Images.hero.bg})` }}
     >
       <div className="absolute top-[70%] right-10 md:top-[60%] lg:right-0 lg:top-[17.5%]">
         <img
-          src={HERO_SECONDARY_IMG}
+          src={Images.hero.floating}
           alt="Loading..."
           className="w-64 ml-24 md:w-full md:ml-0"
         />
