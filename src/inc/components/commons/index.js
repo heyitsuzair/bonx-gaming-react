@@ -122,6 +122,11 @@ import ProductsInfinite from "./infinite_scroll/ProductsInfinite";
  */
 import CarouselVideo from "./carousels/Carousel.video";
 
+/**
+ * Counters
+ */
+import Counter from "./counters/Counter";
+
 export {
   Logo,
   Navbar,
@@ -167,4 +172,5 @@ export {
   RadioGroup,
   ProductsInfinite,
   CarouselVideo,
+  Counter,
 };
