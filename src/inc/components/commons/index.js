@@ -70,6 +70,7 @@ import GamesGrid from "./grids/GamesGrid";
  * Footers
  */
 import MainFooter from "./footer/MainFooter";
+import PreFooter from "./footer/PreFooter";
 
 /**
  * Breadcrumbs
@@ -167,6 +168,7 @@ export {
   HeadingSectionFancy,
   GamesGrid,
   MainFooter,
+  PreFooter,
   BreadcrumbTopPage,
   TextAreaPlain,
   PlainButton,

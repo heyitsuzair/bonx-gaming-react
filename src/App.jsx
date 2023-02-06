@@ -1,6 +1,11 @@
 import "./App.css";
 import Home from "./pages/home";
-import { Navbar, ProgressBar } from "./inc/components/commons";
+import {
+  MainFooter,
+  Navbar,
+  PreFooter,
+  ProgressBar,
+} from "./inc/components/commons";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { RoutesPath } from "./inc/config";
 import { useState } from "react";
@@ -20,6 +25,8 @@ function App() {
         <Routes>
           <Route path={RoutesPath.home} element={<Home />} />
         </Routes>
+        <PreFooter />
+        <MainFooter />
       </Router>
     </Body>
   );

@@ -42,4 +42,9 @@ export const Images = {
       bg3: PATH + "gaming-world-bg3.webp",
     },
   },
+
+  // Footers
+  preFooter: {
+    bg: PATH + "gaming-update.webp",
+  },
 };
