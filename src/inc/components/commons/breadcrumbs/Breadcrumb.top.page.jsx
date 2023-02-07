@@ -18,7 +18,7 @@ const BreadcrumbTopPage = ({ text }) => {
           />
         </Link>
         <TextLg text="/" classes="font-medium mx-2" />
-        <TextLg text={text} classes="font-bold text-primary" />
+        <TextLg text={text} classes="font-bold !text-primary" />
       </div>
     </header>
   );

@@ -139,6 +139,11 @@ import DividerPlain from "./dividers/Divider.plain";
  */
 import TestimonialPlain from "./testimonial/Testimonial.plain";
 
+/**
+ * Dates
+ */
+import Date from "./date/Date";
+
 export {
   Logo,
   Navbar,
@@ -189,4 +194,5 @@ export {
   Counter,
   DividerPlain,
   TestimonialPlain,
+  Date,
 };
