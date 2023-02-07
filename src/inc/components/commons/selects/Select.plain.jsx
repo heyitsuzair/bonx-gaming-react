@@ -19,9 +19,9 @@ const SelectPlain = ({
       {label && (
         <label
           htmlFor={id}
-          className="block mb-2 text-sm font-medium text-gray-900"
+          className="block mb-2 text-sm text-white font-medium text-g"
         >
-          {label} {isRequired && <span className="text-red-500">*</span>}
+          {label} {isRequired && <span className="text-primary">*</span>}
         </label>
       )}
       <select
@@ -30,7 +30,7 @@ const SelectPlain = ({
         id={id}
         value={value}
         onChange={onChange}
-        className="border outline-0 bg-white rounded-lg p-3 w-full"
+        className="border-2 border-secondary-90 transition-all duration-400 text-white outline-0 rounded-md bg-secondary hover:border-primary py-3 px-4 w-full"
       >
         <option value="">{placeholder}</option>
         {options.map((option) => {
