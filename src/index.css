@@ -18,6 +18,7 @@ body {
   font-family: "Exo", sans-serif;
   overflow: overlay;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 .exo-i {
   font-family: "Exo", sans-serif !important;
