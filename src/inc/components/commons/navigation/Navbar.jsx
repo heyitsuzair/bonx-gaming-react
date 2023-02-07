@@ -48,6 +48,7 @@ const Navbar = ({ setProgress }) => {
   };
 
   useEffect(() => {
+    window.pageYOffset > 0 && setIsScrolling(true);
     window.addEventListener("scroll", onWindowScroll);
   }, []);
 
