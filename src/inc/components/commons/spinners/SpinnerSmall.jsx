@@ -4,7 +4,7 @@ const SpinnerSmall = () => {
   return (
     <div role="status">
       <svg
-        className="inline mr-2 w-10 h-10 text-gray-200 animate-spin  fill-indigo-600"
+        className="inline mr-2 w-7 h-7 text-gray-200 animate-spin  fill-primary"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

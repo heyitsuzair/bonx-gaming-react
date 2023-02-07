@@ -5,6 +5,7 @@ import {
   Navbar,
   PreFooter,
   ProgressBar,
+  ReactToastifyContainer,
 } from "./inc/components/commons";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { RoutesPath } from "./inc/config";
@@ -24,6 +25,7 @@ function App() {
       <ProgressBar progress={progress} />
       <Router>
         <Navbar setProgress={setProgress} />
+        <ReactToastifyContainer />
         <Routes>
           <Route
             path={RoutesPath.home}

@@ -17,7 +17,7 @@ const TextAreaPlain = ({
       {label && (
         <label
           htmlFor={id}
-          className="block mb-2 text-sm font-medium text-gray-900"
+          className="block mb-2 text-sm font-medium text-primary"
         >
           {label}
         </label>
@@ -30,7 +30,7 @@ const TextAreaPlain = ({
         id={id}
         onChange={onChange}
         placeholder={placeholder}
-        className="border outline-0 rounded-lg p-4 w-full"
+        className="border-2 border-secondary-90 transition-all duration-400 text-white outline-0 rounded-md bg-secondary hover:border-primary py-3 px-4 w-full"
       />
       {error && (
         <div className="mt-1">

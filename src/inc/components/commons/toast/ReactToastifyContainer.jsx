@@ -9,7 +9,7 @@ const ReactToastifyContainer = () => {
       pauseOnHover={true}
       draggable={true}
       theme="light"
-      toastClassName="dm-sans-i !font-medium !text-black text-md"
+      toastClassName="exo-i !font-medium bg-secondary-90 !text-white text-md"
     />
   );
 };

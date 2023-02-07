@@ -19,20 +19,20 @@ const InputPlain = ({
       {label && (
         <label
           htmlFor={id}
-          className="block mb-2 text-sm font-medium text-gray-900"
+          className="block mb-2 text-sm font-medium text-white"
         >
-          {label} {isRequired && <span className="text-red-500">*</span>}
+          {label} {isRequired && <span className="text-primary">*</span>}
         </label>
       )}
       <input
-        type={type}
+        type={type || "text"}
         name={name}
         onBlur={onBlur}
         id={id}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="border outline-0 rounded-lg p-3 w-full"
+        className="border-2 border-secondary-90 transition-all duration-400 text-white outline-0 rounded-md bg-secondary hover:border-primary py-3 px-4 w-full"
       />
       {error && (
         <div className="mt-1">

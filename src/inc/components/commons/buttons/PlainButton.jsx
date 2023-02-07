@@ -1,5 +1,6 @@
 import React from "react";
 import { Images } from "../../../config";
+import SpinnerSmall from "../spinners/SpinnerSmall";
 
 const PlainButton = ({
   text,
@@ -11,6 +12,7 @@ const PlainButton = ({
   shadow,
   isDisabled,
   isWidthFull,
+  isLoading,
 }) => {
   let buttonSize = `h-12 w-${isWidthFull ? "full" : "40"}`;
   let buttonBorderRadius = "rounded-lg";
@@ -62,15 +64,19 @@ const PlainButton = ({
         } ${textColor} transition-all duration-300 flex justify-center items-center ${buttonBorderRadius} ${buttonShadow} hover:opacity-50 disabled:opacity-60 bg-no-repeat bg-center bg-contain`}
         style={{ backgroundImage: `url(${btnImage && btnImage})` }}
       >
-        <span className={`text-center text-lg font-semibold`}>
-          {text}
+        {isLoading ? (
+          <SpinnerSmall />
+        ) : (
+          <span className={`text-center text-lg font-semibold`}>
+            {text}
 
-          {icon && (
-            <>
-              &nbsp; <i className={`fa ${icon}`} aria-hidden="true"></i>
-            </>
-          )}
-        </span>
+            {icon && (
+              <>
+                &nbsp; <i className={`fa ${icon}`} aria-hidden="true"></i>
+              </>
+            )}
+          </span>
+        )}
       </button>
     </>
   );
