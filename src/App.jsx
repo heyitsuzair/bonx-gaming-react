@@ -11,6 +11,7 @@ import { RoutesPath } from "./inc/config";
 import { useState } from "react";
 import Body from "./Body";
 import { Contact } from "./pages/contact";
+import { Games } from "./pages/games";
 
 function App() {
   /**
@@ -31,6 +32,10 @@ function App() {
           <Route
             path={RoutesPath.contact}
             element={<Contact setProgress={setProgress} />}
+          />
+          <Route
+            path={RoutesPath.games}
+            element={<Games setProgress={setProgress} />}
           />
         </Routes>
         <PreFooter />

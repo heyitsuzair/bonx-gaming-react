@@ -47,4 +47,9 @@ export const Images = {
   preFooter: {
     bg: PATH + "gaming-update.webp",
   },
+
+  // Breadcrumbs
+  Breadcrumbs: {
+    bg: PATH + "breadcrumbs-bg.webp",
+  },
 };

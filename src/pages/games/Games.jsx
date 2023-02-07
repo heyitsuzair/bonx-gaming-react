@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { BreadcrumbTopPage } from "../../inc/components/commons";
 
-const Contact = ({ setProgress }) => {
+const Games = ({ setProgress }) => {
   useEffect(() => {
     setProgress(70);
     setProgress(100);
@@ -11,10 +11,10 @@ const Contact = ({ setProgress }) => {
   }, []);
 
   return (
-    <div id="contact">
-      <BreadcrumbTopPage text="CONTACT US" />
+    <div id="games">
+      <BreadcrumbTopPage text="GAMES" />
     </div>
   );
 };
 
-export default Contact;
+export default Games;
