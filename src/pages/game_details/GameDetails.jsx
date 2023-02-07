@@ -2,6 +2,7 @@ import React from "react";
 import {
   BreadcrumbTopPage,
   Date,
+  PlainButton,
   Text3Xl,
   Text6Xl,
   TextLg,
@@ -9,6 +10,16 @@ import {
 import AdditionalInfo from "./AdditionalInfo";
 
 const GameDetails = () => {
+  const onGameDownload = () => {
+    let link = document.createElement("a"); //create 'a' element
+    link.setAttribute(
+      "href",
+      "/public/img/body-bg-75163e67f04c506397c3885b6dcce035.webp"
+    ); //replace "file" with link to file you want to download
+    link.setAttribute("download", "game_name"); // replace "file" here too
+    link.click(); //virtually click <a> element to initiate download
+  };
+
   return (
     <div id="contact">
       <BreadcrumbTopPage text="GAME DETAILS" />
@@ -42,6 +53,14 @@ const GameDetails = () => {
               />
             </div>
           </div>
+        </div>
+        <div className="mt-10">
+          <PlainButton
+            onClick={onGameDownload}
+            text="Download"
+            icon="fa fa-download"
+            size="large"
+          />
         </div>
         <div className="my-20">
           <AdditionalInfo />

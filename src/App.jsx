@@ -14,6 +14,7 @@ import { Contact } from "./pages/contact";
 import { Games } from "./pages/games";
 import { GameDetails } from "./pages/game_details";
 import ScrollToTop from "./ScrollToTop";
+import DisableClick from "./DisableClick";
 
 function App() {
   /**
@@ -28,6 +29,7 @@ function App() {
         <Navbar setProgress={setProgress} />
         <ReactToastifyContainer />
         <ScrollToTop />
+        <DisableClick />
         <Routes>
           <Route
             path={RoutesPath.home}
