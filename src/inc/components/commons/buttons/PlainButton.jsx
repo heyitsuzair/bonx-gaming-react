@@ -23,7 +23,7 @@ const PlainButton = ({
    * Check What Size We Got As Prop And Than Set Size And Border Radius Accordingly
    */
   if (size && size === "large") {
-    buttonSize = `h-14 w-${isWidthFull ? "full" : "44"} md:h-16 md:w-${
+    buttonSize = `h-14 w-${isWidthFull ? "full" : "40"} md:h-16 md:w-${
       isWidthFull ? "full" : "44"
     }`;
     buttonBorderRadius = "rounded-xl";
@@ -54,7 +54,7 @@ const PlainButton = ({
 
   return (
     <>
-      <div className="hidden w-44 w-52 w-40"></div>
+      <div className="hidden w-40 w-52 w-40"></div>
       <button
         type="button"
         disabled={isDisabled}

@@ -32,7 +32,7 @@ const Hero = () => {
             text="Simply text of the printing and typesetting industry."
             classes="font-bold z-[1] my-8"
           />
-          <div className="-ml-4 z-[1]">
+          <div className="z-[1]">
             <PlainButton
               onClick={() => navigate(RoutesPath.contact)}
               text="Play Now"

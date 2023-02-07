@@ -22,7 +22,7 @@ const PreFooter = () => {
                 size="large"
               />
             </div>
-            <span className="absolute top-1 md:top-2 left-8 z-[0]">
+            <span className="absolute top-1 md:top-2 left-6 z-[0]">
               <span className="animate-ping inline-flex h-12 w-28 rounded-xl bg-white opacity-60"></span>
             </span>
           </a>

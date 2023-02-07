@@ -1,12 +1,49 @@
+import { useFormik } from "formik";
 import React from "react";
 import {
   HeadingSection,
   InputPlain,
   PlainButton,
+  SuccessMessage,
   TextAreaPlain,
 } from "../../inc/components/commons";
+import { ContactFormSchema } from "../../inc/yupSchemas";
 
 const GetInTouch = () => {
+  /**
+   * @function onSubmit
+   *
+   * Triggers When Someone Submits Contact Form
+   */
+  const onSubmit = (values, action) => {
+    setTimeout(() => {
+      action.resetForm();
+      action.setSubmitting(false);
+      SuccessMessage("We Will Contact You Soon!");
+    }, 2000);
+  };
+
+  const initialValues = {
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    message: "",
+  };
+  const {
+    values,
+    errors,
+    touched,
+    handleSubmit,
+    handleBlur,
+    handleChange,
+    isSubmitting,
+  } = useFormik({
+    initialValues,
+    validationSchema: ContactFormSchema,
+    onSubmit,
+  });
+
   return (
     <div>
       <HeadingSection
@@ -14,15 +51,16 @@ const GetInTouch = () => {
         subTitle="Drop Us Your Query And We Will Get Back To You As Soon As Possible"
       />
       <div className="contact-form my-12">
-        <div className="grid grid-cols-12 items-center justify-center gap-4">
+        <div className="grid grid-cols-12 items-start justify-center gap-4">
           <div className="col-span-12 md:col-span-6">
             <InputPlain
               placeholder="Name"
               name="name"
-              error={true}
-              errorText="Please Enter Your Name"
-              onChange={null}
-              onBlur={null}
+              error={errors.name && touched.name}
+              errorText={errors.name}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.name}
             />
           </div>
           <div className="col-span-12 md:col-span-6">
@@ -30,48 +68,54 @@ const GetInTouch = () => {
               placeholder="Email"
               name="email"
               type="email"
-              error={true}
-              errorText="Please Enter Your Email"
-              onChange={null}
-              onBlur={null}
+              error={errors.email && touched.email}
+              errorText={errors.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.email}
             />
           </div>
           <div className="col-span-12 md:col-span-6">
             <InputPlain
               placeholder="Phone"
               name="phone"
-              error={true}
-              errorText="Please Enter Your Phone Number"
-              onChange={null}
-              onBlur={null}
+              error={errors.phone && touched.phone}
+              errorText={errors.phone}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.phone}
             />
           </div>
           <div className="col-span-12 md:col-span-6">
             <InputPlain
               placeholder="Address"
               name="address"
-              error={true}
-              errorText="Please Enter Your Address"
-              onChange={null}
-              onBlur={null}
+              error={errors.address && touched.address}
+              errorText={errors.address}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.address}
             />
           </div>
           <div className="col-span-12">
             <TextAreaPlain
               placeholder="Write Your Message Here"
               name="message"
-              error={true}
-              errorText="Please Enter Your Message"
-              onChange={null}
-              onBlur={null}
+              error={errors.message && touched.message}
+              errorText={errors.message}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.message}
             />
           </div>
           <div className="col-span-12">
             <PlainButton
-              onClick={() => alert("submit")}
+              onClick={() => handleSubmit()}
               text="Submit"
               icon="fa fa-arrow-right"
               size="large"
+              isLoading={isSubmitting}
+              isDisabled={isSubmitting}
             />
           </div>
         </div>

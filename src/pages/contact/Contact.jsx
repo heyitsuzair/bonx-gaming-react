@@ -18,7 +18,7 @@ const Contact = ({ setProgress }) => {
       <div className="my-20">
         <ContactInfo />
       </div>
-      <div className="my-20 px-20">
+      <div className="my-20 px-10 md:px-20">
         <GetInTouch />
       </div>
     </div>
