@@ -33,13 +33,18 @@ export const Images = {
 
   // Cards
   cards: {
+    bg1: PATH + "gaming-world-bg1.webp",
+    bg2: PATH + "gaming-world-bg2.webp",
+    bg3: PATH + "gaming-world-bg3.webp",
     mostWelcome: {
       imgOne: PATH + "gaming-world1.webp",
       imgTwo: PATH + "gaming-world2.webp",
       imgThree: PATH + "gaming-world3.webp",
-      bg1: PATH + "gaming-world-bg1.webp",
-      bg2: PATH + "gaming-world-bg2.webp",
-      bg3: PATH + "gaming-world-bg3.webp",
+    },
+    contact: {
+      email: PATH + "email.webp",
+      location: PATH + "location.webp",
+      phone: PATH + "phone.webp",
     },
   },
 

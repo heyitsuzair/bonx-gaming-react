@@ -6,14 +6,14 @@ import {
   HeadingSection,
   Text5Xl,
 } from "../../inc/components/commons";
-import { MostWelcomeCards } from "../../inc/config";
+import { Cards } from "../../inc/config";
 
 const MostWelcome = () => {
   return (
     <section id="most-welcome" className="py-20">
       <HeadingSection text="YOU ARE MOST WELCOME IN GAMING WORLD." />
       <div className="flex flex-col lg:flex-row gap-4 items-center justify-center lg:justify-between md:my-16">
-        {MostWelcomeCards.map((card) => {
+        {Cards.mostWelcome.map((card) => {
           return <CardTitleDescription key={card.img} {...card} />;
         })}
       </div>

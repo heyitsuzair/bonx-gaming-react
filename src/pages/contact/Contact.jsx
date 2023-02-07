@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { BreadcrumbTopPage } from "../../inc/components/commons";
+import ContactInfo from "./ContactInfo";
 
 const Contact = ({ setProgress }) => {
   useEffect(() => {
@@ -13,6 +14,9 @@ const Contact = ({ setProgress }) => {
   return (
     <div id="contact">
       <BreadcrumbTopPage text="CONTACT US" />
+      <div className="my-20">
+        <ContactInfo />
+      </div>
     </div>
   );
 };
