@@ -1,9 +1,7 @@
 import React from "react";
-import { NavItems } from "../../../config";
+import { NavItems, RoutesPath } from "../../../config";
 import IconPlain from "../icons/Icon.plain";
-import { Link } from "react-router-dom";
-import TextLg from "../text/Text.lg";
-import Text3Xl from "../text/Text.3xl";
+import { Link, useNavigate } from "react-router-dom";
 import Text4Xl from "../text/Text.4xl";
 import Logo from "../image/Logo";
 import PlainButton from "../buttons/PlainButton";
@@ -11,6 +9,11 @@ import PlainButton from "../buttons/PlainButton";
 const NavbarOffcanvas = ({ isOpen, setIsCanvasOpen, onLinkClick }) => {
   const canvasState = isOpen ? "-translate-x-0" : "-translate-x-full";
   const overlayState = !isOpen ? "hidden" : "fixed";
+
+  /**
+   * RRD Helpers
+   */
+  const navigate = useNavigate();
 
   return (
     <>
@@ -41,8 +44,11 @@ const NavbarOffcanvas = ({ isOpen, setIsCanvasOpen, onLinkClick }) => {
           })}
           <div className="-ml-4 mt-4">
             <PlainButton
-              onClick={() => navigate(RoutesPath.signup)}
-              text="Signup"
+              onClick={() => {
+                setIsCanvasOpen(false);
+                navigate(RoutesPath.login);
+              }}
+              text="Login"
               icon="fa fa-arrow-right"
               size="large"
             />

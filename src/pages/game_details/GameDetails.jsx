@@ -23,7 +23,7 @@ const GameDetails = () => {
   return (
     <div id="contact">
       <BreadcrumbTopPage text="GAME DETAILS" />
-      <div className="my-20 px-5 md:px-20">
+      <section className="my-20 px-5 md:px-20">
         <div className="flex flex-col gap-5">
           <Date date="2023-02-02T21:29:40.265+00:00" />
           <Text6Xl text="Alien Space Five Star" classes="font-bold" />
@@ -65,7 +65,7 @@ const GameDetails = () => {
         <div className="my-20">
           <AdditionalInfo />
         </div>
-      </div>
+      </section>
     </div>
   );
 };

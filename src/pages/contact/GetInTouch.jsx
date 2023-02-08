@@ -15,10 +15,10 @@ const GetInTouch = () => {
    *
    * Triggers When Someone Submits Contact Form
    */
-  const onSubmit = (values, action) => {
+  const onSubmit = (values, { resetForm, setSubmitting }) => {
     setTimeout(() => {
-      action.resetForm();
-      action.setSubmitting(false);
+      resetForm();
+      setSubmitting(false);
       SuccessMessage("We Will Contact You Soon!");
     }, 2000);
   };

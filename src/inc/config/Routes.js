@@ -6,4 +6,10 @@ export const RoutesPath = {
 
   // Auth
   signup: "/signup",
+  login: "/login",
+
+  // Dashboard
+  dashboard: {
+    index: "/dashboard",
+  },
 };

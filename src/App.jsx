@@ -15,6 +15,7 @@ import { Games } from "./pages/games";
 import { GameDetails } from "./pages/game_details";
 import ScrollToTop from "./ScrollToTop";
 import DisableClick from "./DisableClick";
+import { Login, Signup } from "./pages/auth";
 
 function App() {
   /**
@@ -31,6 +32,7 @@ function App() {
         <ScrollToTop />
         <DisableClick />
         <Routes>
+          {/* <-------------- App --------------> */}
           <Route
             path={RoutesPath.home}
             element={<Home setProgress={setProgress} />}
@@ -47,6 +49,18 @@ function App() {
             path={`${RoutesPath.games}/:id`}
             element={<GameDetails setProgress={setProgress} />}
           />
+          {/* <-------------- App --------------> */}
+
+          {/* <-------------- Auth --------------> */}
+          <Route
+            path={RoutesPath.signup}
+            element={<Signup setProgress={setProgress} />}
+          />
+          <Route
+            path={RoutesPath.login}
+            element={<Login setProgress={setProgress} />}
+          />
+          {/* <-------------- Auth --------------> */}
         </Routes>
         <PreFooter />
         <MainFooter />

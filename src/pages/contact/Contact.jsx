@@ -15,12 +15,12 @@ const Contact = ({ setProgress }) => {
   return (
     <div id="contact">
       <BreadcrumbTopPage text="CONTACT US" />
-      <div className="my-20">
+      <section className="my-20">
         <ContactInfo />
-      </div>
-      <div className="my-20 px-10 md:px-20">
+      </section>
+      <section className="my-20 px-10 md:px-20">
         <GetInTouch />
-      </div>
+      </section>
     </div>
   );
 };

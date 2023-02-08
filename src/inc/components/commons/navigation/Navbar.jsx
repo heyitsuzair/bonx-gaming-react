@@ -77,8 +77,8 @@ const Navbar = ({ setProgress }) => {
         </nav>
         <div className="hidden md:block">
           <PlainButton
-            onClick={() => navigate(RoutesPath.signup)}
-            text="Signup"
+            onClick={() => navigate(RoutesPath.login)}
+            text="Login"
             icon="fa fa-arrow-right"
             size="large"
           />

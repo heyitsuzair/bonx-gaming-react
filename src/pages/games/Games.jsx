@@ -77,19 +77,19 @@ const Games = ({ setProgress }) => {
   return (
     <div id="games">
       <BreadcrumbTopPage text="GAMES" />
-      <div className="my-20 px-6 md:px-20">
+      <section className="my-20 px-6 md:px-20">
         <div className="items-center bg-secondary-70 rounded-2xl p-6">
           <div className="grid grid-cols-12 gap-4 items-center justify-center">
-            <div className="col-span-12 md:col-span-9">
+            <section className="col-span-12 md:col-span-9">
               <Search debouncedFunction={debouncedFunction} />
-            </div>
-            <div className="col-span-12 md:col-span-3">
+            </section>
+            <section className="col-span-12 md:col-span-3">
               <SelectPlain
                 onChange={onCategoryChange}
                 placeholder="Select Category"
                 options={categories}
               />
-            </div>
+            </section>
           </div>
         </div>
         <div className="mt-10">
@@ -114,7 +114,7 @@ const Games = ({ setProgress }) => {
             )}
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

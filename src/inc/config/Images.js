@@ -57,4 +57,8 @@ export const Images = {
   Breadcrumbs: {
     bg: PATH + "breadcrumbs-bg.webp",
   },
+  // Auth
+  Auth: {
+    thumb: PATH + "auth-thumb.webp",
+  },
 };
