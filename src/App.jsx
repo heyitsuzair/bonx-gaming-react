@@ -16,6 +16,7 @@ import { GameDetails } from "./pages/game_details";
 import ScrollToTop from "./ScrollToTop";
 import DisableClick from "./DisableClick";
 import { Login, Signup } from "./pages/auth";
+import { Main } from "./pages/dashboard";
 
 function App() {
   /**
@@ -61,6 +62,13 @@ function App() {
             element={<Login setProgress={setProgress} />}
           />
           {/* <-------------- Auth --------------> */}
+
+          {/* <-------------- Dashboard --------------> */}
+          <Route
+            path={RoutesPath.dashboard.index}
+            element={<Main setProgress={setProgress} />}
+          />
+          {/* <-------------- Dashboard --------------> */}
         </Routes>
         <PreFooter />
         <MainFooter />
