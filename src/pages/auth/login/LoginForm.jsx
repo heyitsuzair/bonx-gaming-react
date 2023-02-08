@@ -94,7 +94,7 @@ const LoginForm = () => {
             <button type="button" onClick={() => navigate(RoutesPath.signup)}>
               <TextMd
                 text="Signup here"
-                classes="text-yellow-300 font-semibold"
+                classes="!text-yellow-300 font-semibold"
               />
             </button>
           </div>
