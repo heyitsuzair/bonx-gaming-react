@@ -72,7 +72,10 @@ const Games = ({ setProgress }) => {
     }, 500);
   }, []);
 
-  const categories = [{ value: "Action" }, { value: "Adventure" }];
+  const categories = [
+    { value: "1", text: "Action" },
+    { value: "2", text: "Adventure" },
+  ];
 
   return (
     <div id="games">

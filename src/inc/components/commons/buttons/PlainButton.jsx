@@ -54,7 +54,7 @@ const PlainButton = ({
 
   return (
     <>
-      <div className="hidden w-40 w-52 w-40"></div>
+      <div className="hidden w-40 w-52 w-40 w-32 h-12"></div>
       <button
         type="button"
         disabled={isDisabled}

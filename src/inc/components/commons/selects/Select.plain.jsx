@@ -36,7 +36,7 @@ const SelectPlain = ({
         {options.map((option) => {
           return (
             <option key={option.value} value={option.value}>
-              {option.value}
+              {option.text}
             </option>
           );
         })}

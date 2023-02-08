@@ -45,9 +45,8 @@ import IconTitled from "./icons/Icon.titled";
 /**
  * Inputs
  */
-import InputIconned from "./inputs/Input.iconned";
-import InputButtoned from "./inputs/Input.buttoned";
 import InputPlain from "./inputs/Input.plain";
+import InputFile from "./inputs/Input.file";
 
 /**
  * Cards
@@ -169,9 +168,8 @@ export {
   TextShapped,
   IconPlain,
   IconTitled,
-  InputIconned,
-  InputButtoned,
   InputPlain,
+  InputFile,
   CardTitleDescription,
   CardGame,
   HeadingSection,

@@ -13,5 +13,7 @@ export const RoutesPath = {
   dashboard: {
     index: "/dashboard/:route",
     myGames: "/dashboard/my-games",
+    addGame: "/dashboard/add-game",
+    game: "/dashboard/my-games/:id",
   },
 };

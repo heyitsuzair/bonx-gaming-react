@@ -7,53 +7,58 @@ const MyGames = () => {
   const navigate = useNavigate();
 
   return (
-    <div id="my-games">
-      <PlainButton text="Add Game" icon="fa fa-plus" size="large" />
+    <div id="my-games" className="min-h-screen">
+      <PlainButton
+        text="Add Game"
+        size="large"
+        icon="fa fa-plus"
+        onClick={() => navigate(RoutesPath.dashboard.addGame)}
+      />
       <div className="games my-5">
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <table class="w-full text-sm text-left text-white">
-            <thead class="text-xs text-white uppercase">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table className="w-full text-sm text-left text-white">
+            <thead className="text-xs text-white uppercase">
               <tr>
-                <th scope="col" class="px-6 py-3 bg-secondary-90">
+                <th scope="col" className="px-6 py-3 bg-secondary-90">
                   Title
                 </th>
-                <th scope="col" class="px-6 py-3 bg-secondary-70">
+                <th scope="col" className="px-6 py-3 bg-secondary-70">
                   Short Description
                 </th>
-                <th scope="col" class="px-6 py-3 bg-secondary-90">
+                <th scope="col" className="px-6 py-3 bg-secondary-90">
                   Last Updated
                 </th>
-                <th scope="col" class="px-6 py-3 bg-secondary-70">
+                <th scope="col" className="px-6 py-3 bg-secondary-70">
                   Size
                 </th>
-                <th scope="col" class="px-6 py-3 bg-secondary-90">
+                <th scope="col" className="px-6 py-3 bg-secondary-90">
                   Installs
                 </th>
-                <th scope="col" class="px-6 py-3 bg-secondary-70">
+                <th scope="col" className="px-6 py-3 bg-secondary-70">
                   Version
                 </th>
-                <th scope="col" class="px-6 py-3 bg-secondary-90">
+                <th scope="col" className="px-6 py-3 bg-secondary-90">
                   Action
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr
-                class="border-b border-secondary-90 cursor-pointer"
+                className="border-b border-secondary-90 cursor-pointer"
                 onClick={() => navigate(RoutesPath.dashboard.myGames)}
               >
                 <th
                   scope="row"
-                  class="px-6 py-4 font-medium text-white whitespace-nowrap bg-secondary-70"
+                  className="px-6 py-4 font-medium text-white whitespace-nowrap bg-secondary-70"
                 >
                   Apple MacBook Pro 17"
                 </th>
-                <td class="px-6 py-4">Lorem ipsum dolor sit amet.</td>
-                <td class="px-6 py-4 bg-secondary-70">2 Days Ago</td>
-                <td class="px-6 py-4">20 MB</td>
-                <td class="px-6 py-4 bg-secondary-70">1000+</td>
-                <td class="px-6 py-4">1.0.0</td>
-                <td class="px-6 py-4 bg-secondary-70">
+                <td className="px-6 py-4">Lorem ipsum dolor sit amet.</td>
+                <td className="px-6 py-4 bg-secondary-70">2 Days Ago</td>
+                <td className="px-6 py-4">20 MB</td>
+                <td className="px-6 py-4 bg-secondary-70">1000+</td>
+                <td className="px-6 py-4">1.0.0</td>
+                <td className="px-6 py-4 bg-secondary-70">
                   <div className="flex items-center gap-2">
                     <button
                       type="button"
