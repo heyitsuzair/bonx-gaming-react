@@ -144,6 +144,11 @@ import TestimonialPlain from "./testimonial/Testimonial.plain";
  */
 import Date from "./date/Date";
 
+/**
+ * Sidebars
+ */
+import SidebarDashboard from "./sidebars/Sidebar.dashboard";
+
 export {
   Logo,
   Navbar,
@@ -195,4 +200,5 @@ export {
   DividerPlain,
   TestimonialPlain,
   Date,
+  SidebarDashboard,
 };

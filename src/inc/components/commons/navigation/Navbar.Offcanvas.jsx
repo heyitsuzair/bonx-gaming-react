@@ -31,7 +31,7 @@ const NavbarOffcanvas = ({ isOpen, setIsCanvasOpen, onLinkClick }) => {
           </button>
         </div>
         <nav className="flex flex-col gap-7 mx-6 mt-20">
-          {NavItems.map((item) => {
+          {NavItems.App.map((item) => {
             return (
               <Link
                 key={item.path}

@@ -1,16 +1,37 @@
 import { RoutesPath } from "./Routes";
 
-export const NavItems = [
-  {
-    text: "HOME",
-    path: RoutesPath.home,
-  },
-  {
-    text: "GAMES",
-    path: RoutesPath.games,
-  },
-  {
-    text: "CONTACT",
-    path: RoutesPath.contact,
-  },
-];
+export const NavItems = {
+  // App
+  App: [
+    {
+      text: "HOME",
+      path: RoutesPath.home,
+    },
+    {
+      text: "GAMES",
+      path: RoutesPath.games,
+    },
+    {
+      text: "CONTACT",
+      path: RoutesPath.contact,
+    },
+  ],
+  Dashboard: [
+    {
+      text: "MY GAMES",
+      path: RoutesPath.dashboard.myGames,
+    },
+    {
+      text: "SETTINGS",
+      path: RoutesPath.games,
+    },
+    {
+      text: "BACK TO SITE",
+      path: RoutesPath.home,
+    },
+    {
+      text: "LOGOUT",
+      path: RoutesPath.logout,
+    },
+  ],
+};

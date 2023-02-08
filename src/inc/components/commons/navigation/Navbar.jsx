@@ -65,7 +65,7 @@ const Navbar = ({ setProgress }) => {
               <Logo width={56} />
             </Link>
             <nav className="nav-items items-center gap-7 hidden md:flex">
-              {NavItems.map((item) => {
+              {NavItems.App.map((item) => {
                 return (
                   <Link
                     key={item.path}

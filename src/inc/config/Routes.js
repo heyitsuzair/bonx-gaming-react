@@ -7,9 +7,11 @@ export const RoutesPath = {
   // Auth
   signup: "/signup",
   login: "/login",
+  logout: "/logout",
 
   // Dashboard
   dashboard: {
-    index: "/dashboard",
+    index: "/dashboard/:route",
+    myGames: "/dashboard/my-games",
   },
 };
