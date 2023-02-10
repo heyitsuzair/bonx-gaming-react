@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import SidebarDashboard from "../../../inc/components/commons/sidebars/Sidebar.dashboard";
 import { RoutesPath } from "../../../inc/config";
-import { MyGames, AddGame } from "../index";
+import { MyGames, AddGame, EditGame, Settings } from "../index";
 
 const Main = ({ setProgress }) => {
   const location = useLocation();
@@ -22,8 +22,18 @@ const Main = ({ setProgress }) => {
           <SidebarDashboard />
         </div>
         <div className="col-span-12 lg:col-span-9 my-5">
-          {location.pathname === RoutesPath.dashboard.myGames && <MyGames />}
-          {location.pathname === RoutesPath.dashboard.addGame && <AddGame />}
+          <Routes>
+            <Route path={RoutesPath.dashboard.myGames} element={<MyGames />} />
+            <Route path={RoutesPath.dashboard.addGame} element={<AddGame />} />
+            <Route
+              path={RoutesPath.dashboard.settings}
+              element={<Settings />}
+            />
+            <Route
+              path={RoutesPath.dashboard.myGames + "/:id"}
+              element={<EditGame />}
+            />
+          </Routes>
         </div>
       </div>
     </div>

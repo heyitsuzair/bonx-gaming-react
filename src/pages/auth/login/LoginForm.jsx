@@ -26,7 +26,7 @@ const LoginForm = () => {
       resetForm();
       setSubmitting(false);
       SuccessMessage("Logged In!");
-      navigate(RoutesPath.dashboard.myGames);
+      navigate(RoutesPath.dashboard.main + RoutesPath.dashboard.myGames);
     }, 2000);
   };
 

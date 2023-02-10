@@ -13,4 +13,11 @@ export const Dashboard = {
     game_file: Yup.mixed().required("Please Upload Game File"),
     banner: Yup.mixed().required("Please Upload Game Banner"),
   }),
+  settingsFrom: Yup.object({
+    email: Yup.string()
+      .email("Please Enter Valid Email")
+      .required("Please Enter Your Email"),
+    password: Yup.string(),
+    name: Yup.string().required("Please Enter Your Name"),
+  }),
 };

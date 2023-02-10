@@ -10,7 +10,7 @@ import { GameForm } from "../forms";
 import { useFormik } from "formik";
 import { Dashboard } from "../../../inc/yupSchemas";
 
-const AddGame = () => {
+const EditGame = () => {
   // States
   const [file, setFile] = useState(null);
   const [banner, setBanner] = useState(null);
@@ -35,11 +35,11 @@ const AddGame = () => {
   };
 
   const initialValues = {
-    title: "",
-    short_description: "",
-    long_description: "",
-    features: "",
-    whats_new: "",
+    title: "Edit",
+    short_description: "Edit",
+    long_description: "Edit",
+    features: "Edit",
+    whats_new: "Edit",
     installs: 0,
     current_version: "1.0.0",
     category: "",
@@ -83,7 +83,7 @@ const AddGame = () => {
   };
 
   return (
-    <div id="add-games">
+    <div id="edit-games">
       <button
         type="button"
         className="flex items-center gap-3 border-2 border-secondary-90 hover:border-primary transition-all duration-400 rounded-lg py-3 px-5"
@@ -101,4 +101,4 @@ const AddGame = () => {
   );
 };
 
-export default AddGame;
+export default EditGame;

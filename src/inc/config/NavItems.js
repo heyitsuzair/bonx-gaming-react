@@ -23,7 +23,7 @@ export const NavItems = {
     },
     {
       text: "SETTINGS",
-      path: RoutesPath.games,
+      path: RoutesPath.dashboard.settings,
     },
     {
       text: "BACK TO SITE",
