@@ -1,10 +1,22 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { BreadcrumbTopPage } from "../../../inc/components/commons";
-import { Images } from "../../../inc/config";
+import { Images, RoutesPath } from "../../../inc/config";
 import SignupForm from "./SignupForm";
 
 const Signup = ({ setProgress }) => {
+  /**
+   * RRD Helpers
+   */
+  const navigate = useNavigate();
+
+  // Custom Hooks
+  const { user } = useAuth();
+
   useEffect(() => {
+    if (user) {
+      navigate(RoutesPath.dashboard.main + RoutesPath.dashboard.myGames);
+    }
     setProgress(70);
     setProgress(100);
     setTimeout(() => {

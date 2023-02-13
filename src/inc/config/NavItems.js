@@ -29,9 +29,5 @@ export const NavItems = {
       text: "BACK TO SITE",
       path: RoutesPath.home,
     },
-    {
-      text: "LOGOUT",
-      path: RoutesPath.logout,
-    },
   ],
 };

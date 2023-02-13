@@ -8,10 +8,14 @@ import {
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { NavItems, RoutesPath } from "../../../config";
 import { useEffect, useState } from "react";
+import { useAuth } from "../../../hooks/auth";
 const Navbar = ({ setProgress }) => {
   // States
   const [isCanvasOpen, setIsCanvasOpen] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
+
+  // Custom Hooks
+  const { user, logout } = useAuth();
 
   /**
    * RRD Helpers
@@ -78,12 +82,21 @@ const Navbar = ({ setProgress }) => {
               })}
             </nav>
             <div className="hidden md:block">
-              <PlainButton
-                onClick={() => navigate(RoutesPath.login)}
-                text="Login"
-                icon="fa fa-arrow-right"
-                size="large"
-              />
+              {user ? (
+                <PlainButton
+                  onClick={logout}
+                  text="Logout"
+                  icon="fa fa-arrow-right"
+                  size="large"
+                />
+              ) : (
+                <PlainButton
+                  onClick={() => navigate(RoutesPath.login)}
+                  text="Login"
+                  icon="fa fa-arrow-right"
+                  size="large"
+                />
+              )}
             </div>
             <div className="hamburger md:hidden">
               <button onClick={() => setIsCanvasOpen(!isCanvasOpen)}>

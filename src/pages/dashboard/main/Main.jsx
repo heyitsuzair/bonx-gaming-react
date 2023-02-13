@@ -1,13 +1,24 @@
 import React, { useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import SidebarDashboard from "../../../inc/components/commons/sidebars/Sidebar.dashboard";
 import { RoutesPath } from "../../../inc/config";
+import { useAuth } from "../../../inc/hooks/auth";
+import { readCookie } from "../../../inc/utils";
 import { MyGames, AddGame, EditGame, Settings } from "../index";
 
 const Main = ({ setProgress }) => {
+  /**
+   * RRD Helpers
+   */
   const location = useLocation();
+  const navigate = useNavigate();
 
+  // Custom Hooks
+  const { user } = useAuth();
   useEffect(() => {
+    if (!user) {
+      navigate(RoutesPath.login);
+    }
     setProgress(70);
     setProgress(100);
     setTimeout(() => {

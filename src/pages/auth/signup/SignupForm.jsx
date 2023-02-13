@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  ErrorMessage,
   InputPlain,
   PlainButton,
   SuccessMessage,
@@ -10,24 +11,36 @@ import { useFormik } from "formik";
 import { Auth } from "../../../inc/yupSchemas/auth";
 import { useNavigate } from "react-router";
 import { RoutesPath } from "../../../inc/config";
+import { useSignup } from "../../../inc/hooks/auth";
 
 const SignupForm = () => {
+  const { mutate, isLoading } = useSignup();
+
   /**
    * RRD Helpers
    */
   const navigate = useNavigate();
+
+  const onSuccess = ({ data, status, response }) => {
+    if (status !== 201) return ErrorMessage(response.data.msg);
+    SuccessMessage(data.msg);
+    navigate(RoutesPath.login);
+  };
+
+  const onError = ({ message }) => {
+    ErrorMessage(message);
+  };
+
   /**
    * @function onSubmit
    *
    * Triggers When Someone Submits Signup Form
    */
-  const onSubmit = (values, { resetForm, setSubmitting }) => {
-    setTimeout(() => {
-      resetForm();
-      setSubmitting(false);
-      SuccessMessage("Signed Up!");
-      navigate(RoutesPath.login);
-    }, 2000);
+  const onSubmit = (values, { resetForm }) => {
+    mutate(values, {
+      onError,
+      onSuccess,
+    });
   };
 
   const initialValues = {
@@ -36,19 +49,12 @@ const SignupForm = () => {
     name: "",
   };
 
-  const {
-    values,
-    errors,
-    touched,
-    handleBlur,
-    handleChange,
-    isSubmitting,
-    handleSubmit,
-  } = useFormik({
-    initialValues,
-    validationSchema: Auth.signup,
-    onSubmit,
-  });
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues,
+      validationSchema: Auth.signup,
+      onSubmit,
+    });
 
   return (
     <div className="md:-mt-12">
@@ -96,8 +102,8 @@ const SignupForm = () => {
             icon="fa fa-arrow-right"
             isWidthFull
             buttonColor="bg-primary"
-            isLoading={isSubmitting}
-            isDisabled={isSubmitting}
+            isLoading={isLoading}
+            isDisabled={isLoading}
           />
         </div>
         <div className="col-span-12 text-center">

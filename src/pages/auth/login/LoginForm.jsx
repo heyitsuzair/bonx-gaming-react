@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  ErrorMessage,
   InputPlain,
   PlainButton,
   SuccessMessage,
@@ -10,24 +11,37 @@ import { useFormik } from "formik";
 import { Auth } from "../../../inc/yupSchemas/auth";
 import { useNavigate } from "react-router";
 import { RoutesPath } from "../../../inc/config";
+import { useLogin } from "../../../inc/hooks/auth";
+import { setCookie } from "../../../inc/utils";
 
 const LoginForm = () => {
+  const { mutate, isLoading } = useLogin();
+
   /**
    * RRD Helpers
    */
   const navigate = useNavigate();
+
+  const onSuccess = ({ data, status, response }) => {
+    if (status !== 200) return ErrorMessage(response.data.msg);
+    setCookie("bonx-user", data);
+    navigate(RoutesPath.dashboard.main + RoutesPath.dashboard.myGames);
+  };
+
+  const onError = ({ message }) => {
+    ErrorMessage(message);
+  };
+
   /**
    * @function onSubmit
    *
    * Triggers When Someone Submits Login Form
    */
-  const onSubmit = (values, { resetForm, setSubmitting }) => {
-    setTimeout(() => {
-      resetForm();
-      setSubmitting(false);
-      SuccessMessage("Logged In!");
-      navigate(RoutesPath.dashboard.main + RoutesPath.dashboard.myGames);
-    }, 2000);
+  const onSubmit = (values, { resetForm }) => {
+    mutate(values, {
+      onError,
+      onSuccess,
+    });
   };
 
   const initialValues = {
@@ -84,8 +98,8 @@ const LoginForm = () => {
             icon="fa fa-arrow-right"
             isWidthFull
             buttonColor="bg-primary"
-            isLoading={isSubmitting}
-            isDisabled={isSubmitting}
+            isLoading={isLoading}
+            isDisabled={isLoading}
           />
         </div>
         <div className="col-span-12 text-center">
