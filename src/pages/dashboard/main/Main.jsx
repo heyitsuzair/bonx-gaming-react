@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { ErrorMessage } from "../../../inc/components/commons";
 import SidebarDashboard from "../../../inc/components/commons/sidebars/Sidebar.dashboard";
 import { RoutesPath } from "../../../inc/config";
 import { useAuth } from "../../../inc/hooks/auth";
@@ -16,6 +17,7 @@ const Main = ({ setProgress }) => {
   const { user } = useAuth();
   useEffect(() => {
     if (!user) {
+      ErrorMessage("Please Login To Access Dashboard");
       navigate(RoutesPath.login);
     }
     setProgress(70);

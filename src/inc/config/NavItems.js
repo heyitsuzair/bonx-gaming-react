@@ -1,4 +1,7 @@
+import { readCookie } from "../utils";
 import { RoutesPath } from "./Routes";
+
+const user = readCookie("bonx-user");
 
 export const NavItems = {
   // App
@@ -14,6 +17,10 @@ export const NavItems = {
     {
       text: "CONTACT",
       path: RoutesPath.contact,
+    },
+    {
+      text: "DASHBOARD",
+      path: RoutesPath.dashboard.main + RoutesPath.dashboard.myGames,
     },
   ],
   Dashboard: [

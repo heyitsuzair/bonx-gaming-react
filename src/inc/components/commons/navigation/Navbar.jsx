@@ -43,6 +43,32 @@ const Navbar = ({ setProgress }) => {
   };
 
   /**
+   * @function AuthButtons
+   *
+   * Shows Login If User Is Logged Out
+   *
+   * Shows Logout And Dashboard If User Is Logged In
+   */
+
+  const AuthButtons = () => {
+    return user ? (
+      <PlainButton
+        onClick={logout}
+        text="Logout"
+        icon="fa fa-arrow-right"
+        size="large"
+      />
+    ) : (
+      <PlainButton
+        onClick={() => navigate(RoutesPath.login)}
+        text="Login"
+        icon="fa fa-arrow-right"
+        size="large"
+      />
+    );
+  };
+
+  /**
    * Props For Offcanvas
    */
   const offcanvasProps = {
@@ -81,23 +107,7 @@ const Navbar = ({ setProgress }) => {
                 );
               })}
             </nav>
-            <div className="hidden md:block">
-              {user ? (
-                <PlainButton
-                  onClick={logout}
-                  text="Logout"
-                  icon="fa fa-arrow-right"
-                  size="large"
-                />
-              ) : (
-                <PlainButton
-                  onClick={() => navigate(RoutesPath.login)}
-                  text="Login"
-                  icon="fa fa-arrow-right"
-                  size="large"
-                />
-              )}
-            </div>
+            <div className="hidden md:block">{AuthButtons()}</div>
             <div className="hamburger md:hidden">
               <button onClick={() => setIsCanvasOpen(!isCanvasOpen)}>
                 <IconPlain classes="bars text-white !text-2xl" />

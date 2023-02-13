@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Text4Xl from "../text/Text.4xl";
 import Logo from "../image/Logo";
 import PlainButton from "../buttons/PlainButton";
+import { useAuth } from "../../../hooks/auth";
 
 const NavbarOffcanvas = ({ isOpen, setIsCanvasOpen, onLinkClick }) => {
   const canvasState = isOpen ? "-translate-x-0" : "-translate-x-full";
@@ -14,6 +15,37 @@ const NavbarOffcanvas = ({ isOpen, setIsCanvasOpen, onLinkClick }) => {
    * RRD Helpers
    */
   const navigate = useNavigate();
+
+  // Custom Hooks
+  const { user, logout } = useAuth();
+
+  /**
+   * @function AuthButtons
+   *
+   * Shows Login If User Is Logged Out
+   *
+   * Shows Logout And Dashboard If User Is Logged In
+   */
+
+  const AuthButtons = () => {
+    return user ? (
+      <PlainButton
+        onClick={logout}
+        text="Logout"
+        icon="fa fa-arrow-right"
+        size="large"
+      />
+    ) : (
+      <PlainButton
+        onClick={() => {
+          setIsCanvasOpen(!isOpen), navigate(RoutesPath.login);
+        }}
+        text="Login"
+        icon="fa fa-arrow-right"
+        size="large"
+      />
+    );
+  };
 
   return (
     <>
@@ -42,17 +74,7 @@ const NavbarOffcanvas = ({ isOpen, setIsCanvasOpen, onLinkClick }) => {
               </Link>
             );
           })}
-          <div className="-ml-4 mt-4">
-            <PlainButton
-              onClick={() => {
-                setIsCanvasOpen(false);
-                navigate(RoutesPath.login);
-              }}
-              text="Login"
-              icon="fa fa-arrow-right"
-              size="large"
-            />
-          </div>
+          <div className="-ml-4 mt-4">{AuthButtons()}</div>
         </nav>
       </div>
     </>

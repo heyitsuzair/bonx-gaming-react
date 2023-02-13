@@ -35,6 +35,7 @@ const SettingsForm = () => {
 
     setCookie("bonx-user", cookieData);
     SuccessMessage(data.msg);
+    resetForm();
   };
 
   const onError = ({ message }) => {
@@ -65,8 +66,8 @@ const SettingsForm = () => {
     touched,
     handleBlur,
     handleChange,
-    isSubmitting,
     handleSubmit,
+    resetForm,
   } = useFormik({
     initialValues,
     validationSchema: Dashboard.settingsFrom,
