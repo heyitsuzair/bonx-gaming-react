@@ -3,7 +3,6 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import SidebarDashboard from "../../../inc/components/commons/sidebars/Sidebar.dashboard";
 import { RoutesPath } from "../../../inc/config";
 import { useAuth } from "../../../inc/hooks/auth";
-import { readCookie } from "../../../inc/utils";
 import { MyGames, AddGame, EditGame, Settings } from "../index";
 
 const Main = ({ setProgress }) => {

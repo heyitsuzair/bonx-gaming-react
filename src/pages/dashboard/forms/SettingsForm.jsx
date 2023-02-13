@@ -3,32 +3,60 @@ import { useNavigate } from "react-router-dom";
 import { Dashboard } from "../../../inc/yupSchemas";
 import { useFormik } from "formik";
 import {
+  ErrorMessage,
   InputPlain,
   PlainButton,
   SuccessMessage,
 } from "../../../inc/components/commons";
+import { useAuth, useUpdateUser } from "../../../inc/hooks/auth";
+import { setCookie } from "../../../inc/utils";
 
 const SettingsForm = () => {
   /**
    * RRD Helpers
    */
   const navigate = useNavigate();
+
+  // Custom Hooks
+  const { user } = useAuth();
+  const { mutate, isLoading } = useUpdateUser();
+
+  const onSuccess = ({ data, status, response }) => {
+    if (status !== 200) return ErrorMessage(response.data.msg);
+
+    const cookieData = {
+      token: user.token,
+      user_details: {
+        _id: user.user_details._id,
+        email: values.email,
+        name: values.name,
+      },
+    };
+
+    setCookie("bonx-user", cookieData);
+    SuccessMessage(data.msg);
+  };
+
+  const onError = ({ message }) => {
+    ErrorMessage(message);
+  };
+
   /**
    * @function onSubmit
    *
    * Triggers When Someone Submits Settings Form
    */
-  const onSubmit = (values, { resetForm, setSubmitting }) => {
-    setTimeout(() => {
-      setSubmitting(false);
-      SuccessMessage("Updated!");
-    }, 2000);
+  const onSubmit = (values) => {
+    mutate(values, {
+      onError,
+      onSuccess,
+    });
   };
 
   const initialValues = {
-    email: "test@example.com",
+    email: user?.user_details.email,
     password: "",
-    name: "John Doe",
+    name: user?.user_details.name,
   };
 
   const {
@@ -90,8 +118,8 @@ const SettingsForm = () => {
               text="Update"
               icon="fa fa-refresh"
               buttonColor="bg-primary"
-              isLoading={isSubmitting}
-              isDisabled={isSubmitting}
+              isLoading={isLoading}
+              isDisabled={isLoading}
             />
           </div>
         </div>

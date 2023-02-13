@@ -36,7 +36,7 @@ const SignupForm = () => {
    *
    * Triggers When Someone Submits Signup Form
    */
-  const onSubmit = (values, { resetForm }) => {
+  const onSubmit = (values) => {
     mutate(values, {
       onError,
       onSuccess,

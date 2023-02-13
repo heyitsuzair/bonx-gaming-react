@@ -9,5 +9,10 @@ export const RequestConfig = {
       url: "auth/login",
       method: "POST",
     },
+    update: {
+      url: "auth/update",
+      method: "PUT",
+      isAuthenticated: true,
+    },
   },
 };

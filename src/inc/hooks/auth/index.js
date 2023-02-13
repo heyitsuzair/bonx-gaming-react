@@ -12,12 +12,19 @@ const onLogin = (credentials) => {
   RequestConfig.auth.login.data = credentials;
   return Request(RequestConfig.auth.login);
 };
+const onUpdate = (credentials) => {
+  RequestConfig.auth.update.data = credentials;
+  return Request(RequestConfig.auth.update);
+};
 
 export const useSignup = () => {
   return useMutation(onSignUp);
 };
 export const useLogin = () => {
   return useMutation(onLogin);
+};
+export const useUpdateUser = () => {
+  return useMutation(onUpdate);
 };
 
 export const useAuth = () => {

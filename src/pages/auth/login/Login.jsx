@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { BreadcrumbTopPage } from "../../../inc/components/commons";
 import { Images, RoutesPath } from "../../../inc/config";
 import { useAuth } from "../../../inc/hooks/auth";
-import { readCookie } from "../../../inc/utils";
 import LoginForm from "./LoginForm";
 
 const Login = ({ setProgress }) => {

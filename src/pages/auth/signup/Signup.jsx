@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BreadcrumbTopPage } from "../../../inc/components/commons";
 import { Images, RoutesPath } from "../../../inc/config";
+import { useAuth } from "../../../inc/hooks/auth";
 import SignupForm from "./SignupForm";
 
 const Signup = ({ setProgress }) => {
