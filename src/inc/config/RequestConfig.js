@@ -22,6 +22,12 @@ export const RequestConfig = {
       method: "POST",
       isAuthenticated: true,
     },
+    delete: {
+      url: "games/",
+      method: "DELETE",
+      isAuthenticated: true,
+      id: "",
+    },
   },
 
   // Games

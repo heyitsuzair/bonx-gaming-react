@@ -11,6 +11,9 @@ export const Request = ({ ...options }) => {
   if (options.isAuthenticated) {
     client.defaults.headers.common.Authorization = `Bearer ${user.token}`;
   }
+  if (options.id) {
+    options.url = options.url + options.id;
+  }
   const onSuccess = (response) => {
     return response;
   };
