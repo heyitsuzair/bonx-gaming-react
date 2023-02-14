@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "react-query";
-import { Request, RequestConfig, RoutesPath } from "../../config";
+import { Request, RequestConfig } from "../../config";
 
 const onAddGame = (fields) => {
   RequestConfig.game.create.data = fields;
