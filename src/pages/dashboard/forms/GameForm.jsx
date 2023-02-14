@@ -164,7 +164,7 @@ const GameForm = ({
             value={banner}
             isImage
             onChange={onBannerChange}
-            fileTypes={["PNG", "JPEG", "JPG"]}
+            fileTypes={["PNG", "JPEG", "JPG", "WEBP"]}
           />
         </div>
         <div className="col-span-12">

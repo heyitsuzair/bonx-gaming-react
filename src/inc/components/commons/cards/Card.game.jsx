@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PlainButton from "../buttons/PlainButton";
 import { useNavigate } from "react-router-dom";
 import { RoutesPath } from "../../../config";
-import { getImage } from "../../../utils";
+import { getFile } from "../../../utils";
 
 const CardGame = ({ banner, _id }) => {
   // States
@@ -42,7 +42,7 @@ const CardGame = ({ banner, _id }) => {
           size="large"
         />
       </div>
-      <img src={getImage(banner)} alt="Loading..." className={classes.img} />
+      <img src={getFile(banner)} alt="Loading..." className={classes.img} />
     </div>
   );
 };

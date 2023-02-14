@@ -12,7 +12,7 @@ import { GameForm } from "../forms";
 import { useFormik } from "formik";
 import { Dashboard } from "../../../inc/yupSchemas";
 import { useEditGame, useGame } from "../../../inc/hooks/games";
-import { bytesToMbs, getImage } from "../../../inc/utils";
+import { bytesToMbs, getFile } from "../../../inc/utils";
 
 const EditGame = () => {
   const { id } = useParams();
@@ -133,7 +133,7 @@ const EditGame = () => {
         game_file: null,
         banner: null,
       });
-      setBanner(getImage(data?.data?.banner));
+      setBanner(getFile(data?.data?.banner));
       setFile(`A File Of Size ${bytesToMbs(data?.data?.game_file.size)}`);
     }
   }, [data]);

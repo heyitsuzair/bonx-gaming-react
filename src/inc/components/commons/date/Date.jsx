@@ -7,10 +7,13 @@ const Date = ({ date, isSmall }) => {
 
   useEffect(() => {
     const result = moment(date).fromNow();
+
     setTimeAgo(result);
   }, []);
   if (isSmall) return <TextSm text={timeAgo} classes="font-semibold" />;
-  return <TextLg text={timeAgo} classes="!text-primary font-semibold" />;
+  return (
+    <TextLg text={timeAgo} classes="!text-primary font-semibold capitalize" />
+  );
 };
 
 export default Date;

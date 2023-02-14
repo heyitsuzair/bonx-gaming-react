@@ -47,11 +47,13 @@ export const useOwnerGames = () => {
   return useQuery("owner-games", onGetOwnerGames);
 };
 export const useGame = (id) => {
-  return useQuery(["game", id], () => onGetGame(id));
+  return useQuery(["game", id], () => onGetGame(id), {
+    refetchOnWindowFocus: false,
+  });
 };
-export const useGames = (id) => {
+export const useGames = () => {
   return useQuery("games", onGetGames);
 };
-export const useSearchGames = (id) => {
+export const useSearchGames = () => {
   return useMutation("search-games", onSearchGames);
 };
