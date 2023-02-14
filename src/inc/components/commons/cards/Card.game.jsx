@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import PlainButton from "../buttons/PlainButton";
 import { useNavigate } from "react-router-dom";
-import { Images, RoutesPath } from "../../../config";
+import { RoutesPath } from "../../../config";
+import { getImage } from "../../../utils";
 
-const CardGame = () => {
+const CardGame = ({ banner, _id }) => {
   // States
   const [isHovered, setIsHovered] = useState(false);
 
@@ -21,10 +22,10 @@ const CardGame = () => {
 
   const classes = {
     card: "game-card relative",
-    overlay: `absolute flex items-center justify-center overlay rounded-3xl bg-[rgb(9,0,42,0.5)] h-full w-full border-[0.5rem] border-gray-400 transition-all duration-300 ${
+    overlay: `absolute flex items-center justify-center overlay rounded-2xl bg-[rgb(9,0,42,0.5)] h-full w-full border-[0.5rem] border-gray-400 transition-all duration-300 ${
       isHovered ? "opacity-100" : "opacity-0"
     }`,
-    img: "w-full h-full object-cover rounded-xl",
+    img: "w-full h-80 object-cover rounded-xl",
   };
 
   return (
@@ -37,11 +38,11 @@ const CardGame = () => {
         <PlainButton
           text="Game Details"
           icon="fa fa-arrow-right"
-          onClick={() => navigate(RoutesPath.games + "/1")}
+          onClick={() => navigate(RoutesPath.games + `/${_id}`)}
           size="large"
         />
       </div>
-      <img src={Images.gameSample} alt="Loading..." className={classes.img} />
+      <img src={getImage(banner)} alt="Loading..." className={classes.img} />
     </div>
   );
 };

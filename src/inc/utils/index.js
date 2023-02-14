@@ -4,3 +4,4 @@ export * from "./readCookie";
 export * from "./setCookie";
 export * from "./substring";
 export * from "./bytesToMbs";
+export * from "./getImage";

@@ -48,5 +48,14 @@ export const RequestConfig = {
       method: "GET",
       isAuthenticated: true,
     },
+    read: {
+      url: "games",
+      method: "GET",
+    },
+    search: {
+      url: "games/search",
+      method: "GET",
+      params: { query: "", category: "" },
+    },
   },
 };

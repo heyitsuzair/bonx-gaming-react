@@ -13,6 +13,7 @@ const SelectPlain = ({
   onBlur,
   options,
   isRequired,
+  reference,
 }) => {
   return (
     <div>
@@ -27,6 +28,7 @@ const SelectPlain = ({
       <select
         name={name}
         onBlur={onBlur}
+        ref={reference || null}
         id={id}
         value={value}
         onChange={onChange}

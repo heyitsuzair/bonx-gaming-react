@@ -1,9 +1,13 @@
 import React from "react";
 import { InputPlain } from "../../inc/components/commons";
 
-const Search = ({ debouncedFunction }) => {
+const Search = ({ debouncedFunction, reference }) => {
   return (
-    <InputPlain placeholder="Search For Games" onChange={debouncedFunction} />
+    <InputPlain
+      placeholder="Search For Games"
+      reference={reference}
+      onChange={debouncedFunction}
+    />
   );
 };
 

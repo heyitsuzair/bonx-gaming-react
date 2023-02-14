@@ -13,6 +13,7 @@ const InputPlain = ({
   value,
   onBlur,
   isRequired,
+  reference,
 }) => {
   return (
     <div>
@@ -28,6 +29,7 @@ const InputPlain = ({
         type={type || "text"}
         name={name}
         onBlur={onBlur}
+        ref={reference || null}
         id={id}
         value={value}
         onChange={onChange}

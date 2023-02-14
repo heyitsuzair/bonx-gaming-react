@@ -12,15 +12,13 @@ import { GameForm } from "../forms";
 import { useFormik } from "formik";
 import { Dashboard } from "../../../inc/yupSchemas";
 import { useEditGame, useGame } from "../../../inc/hooks/games";
-import { bytesToMbs } from "../../../inc/utils";
+import { bytesToMbs, getImage } from "../../../inc/utils";
 
 const EditGame = () => {
   const { id } = useParams();
 
   // Custom Hooks
-  const { data, isLoading, status, error } = useGame(id);
-
-  const HOST = import.meta.env.UPLOADS_URL || "http://localhost:5000/uploads/";
+  const { data, isLoading } = useGame(id);
 
   // States
   const [file, setFile] = useState(null);
@@ -135,7 +133,7 @@ const EditGame = () => {
         game_file: null,
         banner: null,
       });
-      setBanner(HOST + data?.data?.banner);
+      setBanner(getImage(data?.data?.banner));
       setFile(`A File Of Size ${bytesToMbs(data?.data?.game_file.size)}`);
     }
   }, [data]);
