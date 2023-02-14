@@ -15,11 +15,20 @@ export const RequestConfig = {
       isAuthenticated: true,
     },
   },
-  // Games
-  games: {
+  // Game
+  game: {
     create: {
       url: "games",
       method: "POST",
+      isAuthenticated: true,
+    },
+  },
+
+  // Games
+  games: {
+    readOwnerGame: {
+      url: "games/owner",
+      method: "GET",
       isAuthenticated: true,
     },
   },
