@@ -15,4 +15,12 @@ export const RequestConfig = {
       isAuthenticated: true,
     },
   },
+  // Games
+  games: {
+    create: {
+      url: "games",
+      method: "POST",
+      isAuthenticated: true,
+    },
+  },
 };

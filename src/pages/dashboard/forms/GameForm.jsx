@@ -15,7 +15,7 @@ const GameForm = ({
   handleBlur,
   handleChange,
   handleSubmit,
-  isSubmitting,
+  isLoading,
   setFieldValue,
   setFieldTouched,
   setBanner,
@@ -171,8 +171,8 @@ const GameForm = ({
             onClick={() => handleSubmit()}
             text="Add Game"
             buttonColor="bg-primary"
-            isLoading={isSubmitting}
-            isDisabled={isSubmitting}
+            isLoading={isLoading}
+            isDisabled={isLoading}
           />
         </div>
       </div>

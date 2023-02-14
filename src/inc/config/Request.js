@@ -8,6 +8,7 @@ const client = axios.create({ baseURL });
 const user = readCookie("bonx-user");
 
 export const Request = ({ ...options }) => {
+  console.log(user);
   if (options.isAuthenticated) {
     client.defaults.headers.common.Authorization = `Bearer ${user.token}`;
   }

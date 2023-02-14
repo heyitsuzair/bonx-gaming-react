@@ -26,10 +26,12 @@ const LoginForm = () => {
     if (status !== 200) return ErrorMessage(response.data.msg);
     setCookie("bonx-user", data);
     navigate(RoutesPath.dashboard.main + RoutesPath.dashboard.myGames);
+    navigator.vibrate(1000);
   };
 
   const onError = ({ message }) => {
     ErrorMessage(message);
+    navigator.vibrate(1000);
   };
 
   /**

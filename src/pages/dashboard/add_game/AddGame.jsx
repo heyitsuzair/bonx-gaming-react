@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  ErrorMessage,
   IconPlain,
   SuccessMessage,
   TextXl,
@@ -9,6 +10,7 @@ import { RoutesPath } from "../../../inc/config";
 import { GameForm } from "../forms";
 import { useFormik } from "formik";
 import { Dashboard } from "../../../inc/yupSchemas";
+import { useAddGame } from "../../../inc/hooks/games";
 
 const AddGame = () => {
   // States
@@ -20,18 +22,41 @@ const AddGame = () => {
    */
   const navigate = useNavigate();
 
+  // Custom Hooks
+  const { mutate, isLoading } = useAddGame();
+
+  const onSuccess = ({ data, status, response }) => {
+    if (status !== 201) return ErrorMessage(response.data.msg);
+    SuccessMessage(data.msg);
+    navigate(RoutesPath.dashboard.main + RoutesPath.dashboard.myGames);
+  };
+
+  const onError = ({ message }) => {
+    ErrorMessage(message);
+  };
+
   /**
    * @function onSubmit
    *
    * Triggers When Someone Submits Game Form
    */
-  const onSubmit = (values, { resetForm, setSubmitting }) => {
-    setTimeout(() => {
-      resetForm();
-      setSubmitting(false);
-      SuccessMessage("Game Added!");
-      navigate(RoutesPath.dashboard.myGames);
-    }, 2000);
+  const onSubmit = (values) => {
+    const formData = new FormData();
+    formData.append("title", values.title);
+    formData.append("short_description", values.short_description);
+    formData.append("long_description", values.long_description);
+    formData.append("features", values.features);
+    formData.append("installs", values.installs);
+    formData.append("whats_new", values.whats_new);
+    formData.append("current_version", values.current_version);
+    formData.append("category", values.category);
+    formData.append("game_file", values.game_file);
+    formData.append("banner", values.banner);
+
+    mutate(formData, {
+      onError,
+      onSuccess,
+    });
   };
 
   const initialValues = {
@@ -52,7 +77,6 @@ const AddGame = () => {
     errors,
     handleSubmit,
     touched,
-    isSubmitting,
     handleBlur,
     handleChange,
     setFieldTouched,
@@ -71,7 +95,7 @@ const AddGame = () => {
     errors,
     handleSubmit,
     touched,
-    isSubmitting,
+    isLoading,
     handleBlur,
     handleChange,
     setFieldTouched,
