@@ -33,7 +33,7 @@ const InputFile = ({
         types={fileTypes}
       />
       {value && !isImage && (
-        <TextSm text={value.name} classes="!text-green-400 mt-1" />
+        <TextSm text={value.name || value} classes="!text-green-400 mt-1" />
       )}
       {value && isImage && (
         <img src={value} className="w-32 my-4 h-20 object-cover rounded-md" />

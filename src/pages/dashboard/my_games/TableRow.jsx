@@ -54,6 +54,18 @@ const TableRow = ({
       RoutesPath.dashboard.main + RoutesPath.dashboard.myGames + `/${id}`
     );
   };
+
+  /**
+   *
+   * @function onDeleteGame
+   *
+   * Triggers When Someone Press On Trash Icon
+   *
+   * @param {string} id Is The ID Of Game To Be Deleted
+   *
+   * @calls Mutate Function Of useDeleteGame() Hook
+   */
+
   const onDeleteGame = (id) => {
     mutate(id, {
       onError,

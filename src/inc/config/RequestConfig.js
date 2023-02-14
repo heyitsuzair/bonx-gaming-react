@@ -22,9 +22,20 @@ export const RequestConfig = {
       method: "POST",
       isAuthenticated: true,
     },
+    read: {
+      url: "games/",
+      method: "GET",
+      id: "",
+    },
     delete: {
       url: "games/",
       method: "DELETE",
+      isAuthenticated: true,
+      id: "",
+    },
+    update: {
+      url: "games/",
+      method: "PUT",
       isAuthenticated: true,
       id: "",
     },

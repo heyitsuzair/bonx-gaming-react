@@ -83,7 +83,7 @@ const AddGame = () => {
     setFieldValue,
   } = useFormik({
     initialValues,
-    validationSchema: Dashboard.gameForm,
+    validationSchema: Dashboard.AddGameForm,
     onSubmit,
   });
 

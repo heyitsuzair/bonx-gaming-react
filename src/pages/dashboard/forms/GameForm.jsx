@@ -22,6 +22,7 @@ const GameForm = ({
   setFile,
   file,
   banner,
+  isUpdate,
 }) => {
   const categories = [
     { value: "1", text: "Action" },
@@ -169,7 +170,7 @@ const GameForm = ({
         <div className="col-span-12">
           <PlainButton
             onClick={() => handleSubmit()}
-            text="Add Game"
+            text={isUpdate ? "Update" : "Add Game"}
             buttonColor="bg-primary"
             isLoading={isLoading}
             isDisabled={isLoading}

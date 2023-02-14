@@ -1,16 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
+  ErrorMessage,
   IconPlain,
+  SpinnerMedium,
   SuccessMessage,
   TextXl,
 } from "../../../inc/components/commons";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { RoutesPath } from "../../../inc/config";
 import { GameForm } from "../forms";
 import { useFormik } from "formik";
 import { Dashboard } from "../../../inc/yupSchemas";
+import { useEditGame, useGame } from "../../../inc/hooks/games";
+import { bytesToMbs } from "../../../inc/utils";
 
 const EditGame = () => {
+  const { id } = useParams();
+
+  // Custom Hooks
+  const { data, isLoading, status, error } = useGame(id);
+
+  const HOST = import.meta.env.UPLOADS_URL || "http://localhost:5000/uploads/";
+
   // States
   const [file, setFile] = useState(null);
   const [banner, setBanner] = useState(null);
@@ -20,47 +31,70 @@ const EditGame = () => {
    */
   const navigate = useNavigate();
 
+  // Custom Hooks
+  const { mutate, isLoading: isGameUpdating } = useEditGame();
+
+  const onSuccess = ({ data, status, response }) => {
+    if (status !== 200) return ErrorMessage(response.data.msg);
+    SuccessMessage(data.msg);
+    navigate(RoutesPath.dashboard.main + RoutesPath.dashboard.myGames);
+  };
+
+  const onError = ({ message }) => {
+    ErrorMessage(message);
+  };
+
   /**
    * @function onSubmit
    *
    * Triggers When Someone Submits Game Form
    */
-  const onSubmit = (values, { resetForm, setSubmitting }) => {
-    setTimeout(() => {
-      resetForm();
-      setSubmitting(false);
-      SuccessMessage("Game Added!");
-      navigate(RoutesPath.dashboard.myGames);
-    }, 2000);
+  const onSubmit = (values) => {
+    const formData = new FormData();
+    formData.append("title", values.title);
+    formData.append("short_description", values.short_description);
+    formData.append("long_description", values.long_description);
+    formData.append("features", values.features);
+    formData.append("installs", values.installs);
+    formData.append("whats_new", values.whats_new);
+    formData.append("current_version", values.current_version);
+    formData.append("category", values.category);
+    formData.append("game_file", values.game_file);
+    formData.append("banner", values.banner);
+
+    mutate([id, formData], {
+      onError,
+      onSuccess,
+    });
   };
 
-  const initialValues = {
-    title: "Edit",
-    short_description: "Edit",
-    long_description: "Edit",
-    features: "Edit",
-    whats_new: "Edit",
-    installs: 0,
-    current_version: "1.0.0",
+  const [initialValues, setInitialValues] = useState({
+    title: "",
+    short_description: "",
+    long_description: "",
+    features: "",
+    whats_new: "",
+    installs: "",
+    current_version: "",
     category: "",
     game_file: null,
     banner: null,
-  };
+  });
 
   const {
     values,
     errors,
     handleSubmit,
     touched,
-    isSubmitting,
     handleBlur,
     handleChange,
     setFieldTouched,
     setFieldValue,
   } = useFormik({
     initialValues,
-    validationSchema: Dashboard.gameForm,
+    validationSchema: Dashboard.EditGameForm,
     onSubmit,
+    enableReinitialize: true,
   });
 
   /**
@@ -71,7 +105,8 @@ const EditGame = () => {
     errors,
     handleSubmit,
     touched,
-    isSubmitting,
+    isLoading: isGameUpdating,
+    isUpdate: true,
     handleBlur,
     handleChange,
     setFieldTouched,
@@ -81,6 +116,29 @@ const EditGame = () => {
     file,
     setFile,
   };
+
+  useEffect(() => {
+    if (!id || data?.response?.status === 404)
+      return navigate(RoutesPath.dashboard.main + RoutesPath.dashboard.myGames);
+
+    // Set Data As Initial Values
+    if (data) {
+      setInitialValues({
+        title: data.data.title,
+        short_description: data.data.short_description,
+        long_description: data.data.long_description,
+        features: data.data.features,
+        whats_new: data.data.whats_new,
+        installs: data.data.installs,
+        current_version: data.data.current_version,
+        category: data.data.category,
+        game_file: null,
+        banner: null,
+      });
+      setBanner(HOST + data?.data?.banner);
+      setFile(`A File Of Size ${bytesToMbs(data?.data?.game_file.size)}`);
+    }
+  }, [data]);
 
   return (
     <div id="edit-games">
@@ -95,7 +153,13 @@ const EditGame = () => {
         <TextXl text="Back" classes="font-bold" />
       </button>
       <div className="add-game-form">
-        <GameForm {...gameFormProps} />
+        {isLoading ? (
+          <div className="lg:w-[98%] border-2 text-center flex items-center justify-center h-[79vh] border-secondary-90 bg-secondary-70 my-5 p-5 rounded-lg">
+            <SpinnerMedium />
+          </div>
+        ) : (
+          <GameForm {...gameFormProps} />
+        )}
       </div>
     </div>
   );
