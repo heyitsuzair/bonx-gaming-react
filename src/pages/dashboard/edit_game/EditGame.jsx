@@ -121,7 +121,7 @@ const EditGame = () => {
         game_file: null,
         banner: null,
       });
-      setBanner(data?.data?.banner);
+      setBanner(data?.data?.banner.replace("http", "https"));
       setFile(`A File Of Size ${bytesToMbs(data?.data?.game_file.size)}`);
     }
   }, [data]);

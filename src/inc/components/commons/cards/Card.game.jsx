@@ -41,7 +41,11 @@ const CardGame = ({ banner, _id }) => {
           size="large"
         />
       </div>
-      <img src={banner} alt="Loading..." className={classes.img} />
+      <img
+        src={banner.replace("http", "https")}
+        alt="Loading..."
+        className={classes.img}
+      />
     </div>
   );
 };
