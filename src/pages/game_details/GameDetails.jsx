@@ -24,8 +24,7 @@ const GameDetails = () => {
   const onGameDownload = () => {
     let link = document.createElement("a"); //create 'a' element
     link.setAttribute("href", data?.data.game_file.filename); //replace "file" with link to file you want to download
-    link.setAttribute("target", "_blank");
-    // link.setAttribute("download", "game_name"); // replace "file" here too
+    link.setAttribute("download", "game_file");
     link.click(); //virtually click <a> element to initiate download
   };
 
