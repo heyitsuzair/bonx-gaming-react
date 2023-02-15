@@ -94,6 +94,7 @@ import SpinnerMedium from "./spinners/SpinnerMedium";
 import ReactToastifyContainer from "./toast/ReactToastifyContainer";
 import SuccessMessage from "./toast/SuccessMessage";
 import ErrorMessage from "./toast/ErrorMessage";
+import WarningMessage from "./toast/WarningMessage";
 
 /**
  * Badges
@@ -186,6 +187,7 @@ export {
   ReactToastifyContainer,
   SuccessMessage,
   ErrorMessage,
+  WarningMessage,
   BadgePlain,
   BadgeGroup,
   SelectPlain,

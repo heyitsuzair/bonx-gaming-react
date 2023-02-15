@@ -12,7 +12,7 @@ import { GameForm } from "../forms";
 import { useFormik } from "formik";
 import { Dashboard } from "../../../inc/yupSchemas";
 import { useEditGame, useGame } from "../../../inc/hooks/games";
-import { bytesToMbs, getFile } from "../../../inc/utils";
+import { bytesToMbs } from "../../../inc/utils";
 
 const EditGame = () => {
   const { id } = useParams();
@@ -48,19 +48,7 @@ const EditGame = () => {
    * Triggers When Someone Submits Game Form
    */
   const onSubmit = (values) => {
-    const formData = new FormData();
-    formData.append("title", values.title);
-    formData.append("short_description", values.short_description);
-    formData.append("long_description", values.long_description);
-    formData.append("features", values.features);
-    formData.append("installs", values.installs);
-    formData.append("whats_new", values.whats_new);
-    formData.append("current_version", values.current_version);
-    formData.append("category", values.category);
-    formData.append("game_file", values.game_file);
-    formData.append("banner", values.banner);
-
-    mutate([id, formData], {
+    mutate([id, values], {
       onError,
       onSuccess,
     });
@@ -133,7 +121,7 @@ const EditGame = () => {
         game_file: null,
         banner: null,
       });
-      setBanner(getFile(data?.data?.banner));
+      setBanner(data?.data?.banner);
       setFile(`A File Of Size ${bytesToMbs(data?.data?.game_file.size)}`);
     }
   }, [data]);

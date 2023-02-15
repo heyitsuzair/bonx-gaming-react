@@ -41,19 +41,7 @@ const AddGame = () => {
    * Triggers When Someone Submits Game Form
    */
   const onSubmit = (values) => {
-    const formData = new FormData();
-    formData.append("title", values.title);
-    formData.append("short_description", values.short_description);
-    formData.append("long_description", values.long_description);
-    formData.append("features", values.features);
-    formData.append("installs", values.installs);
-    formData.append("whats_new", values.whats_new);
-    formData.append("current_version", values.current_version);
-    formData.append("category", values.category);
-    formData.append("game_file", values.game_file);
-    formData.append("banner", values.banner);
-
-    mutate(formData, {
+    mutate(values, {
       onError,
       onSuccess,
     });

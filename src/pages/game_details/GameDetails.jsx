@@ -10,7 +10,6 @@ import {
   TextLg,
 } from "../../inc/components/commons";
 import { useGame } from "../../inc/hooks/games";
-import { getFile } from "../../inc/utils";
 import AdditionalInfo from "./AdditionalInfo";
 
 const GameDetails = () => {
@@ -24,7 +23,7 @@ const GameDetails = () => {
 
   const onGameDownload = () => {
     let link = document.createElement("a"); //create 'a' element
-    link.setAttribute("href", getFile(data?.data.game_file.filename)); //replace "file" with link to file you want to download
+    link.setAttribute("href", data?.data.game_file.filename); //replace "file" with link to file you want to download
     link.setAttribute("download", "game_name"); // replace "file" here too
     link.click(); //virtually click <a> element to initiate download
   };

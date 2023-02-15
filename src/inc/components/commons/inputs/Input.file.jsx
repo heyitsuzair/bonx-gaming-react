@@ -1,5 +1,5 @@
 import React from "react";
-import { TextError, TextSm } from "../index";
+import { TextError, TextSm, WarningMessage } from "../index";
 import { FileUploader } from "react-drag-drop-files";
 
 const InputFile = ({
@@ -29,6 +29,10 @@ const InputFile = ({
         handleChange={onChange}
         label={placeholder}
         name={name}
+        maxSize={10}
+        onSizeError={() =>
+          WarningMessage("Please Upload File Lesser Than 10 MB")
+        }
         classes="bg-secondary !text-white border-2 !border-secondary-90 transition-all duration-400 hover:!border-primary w-full !min-w-[100%]"
         types={fileTypes}
       />

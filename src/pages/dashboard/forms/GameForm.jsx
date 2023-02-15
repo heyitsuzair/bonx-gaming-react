@@ -34,9 +34,10 @@ const GameForm = ({
    *
    * Triggers When Game File Uploads
    */
-  const onFileChange = (file) => {
+  const onFileChange = async (file) => {
+    const file64 = await convertToBase64(file);
     setFieldTouched("game_file", true);
-    setFieldValue("game_file", file);
+    setFieldValue("game_file", file64);
     setFile(file);
   };
   /**
@@ -45,9 +46,9 @@ const GameForm = ({
    * Triggers When Game Banner Uploads
    */
   const onBannerChange = async (banner) => {
-    setFieldTouched("banner", true);
-    setFieldValue("banner", banner);
     const banner64 = await convertToBase64(banner);
+    setFieldTouched("banner", true);
+    setFieldValue("banner", banner64);
     setBanner(banner64);
   };
 
@@ -152,7 +153,7 @@ const GameForm = ({
             errorText={errors.game_file}
             value={file}
             onChange={onFileChange}
-            fileTypes={["APK", "ROM", "GAM", "SAV"]}
+            fileTypes={["APK"]}
           />
         </div>
         <div className="col-span-12">
