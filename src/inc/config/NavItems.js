@@ -1,7 +1,4 @@
-import { readCookie } from "../utils";
 import { RoutesPath } from "./Routes";
-
-const user = readCookie("bonx-user");
 
 export const NavItems = {
   // App

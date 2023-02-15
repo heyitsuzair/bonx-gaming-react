@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Dashboard } from "../../../inc/yupSchemas";
 import { useFormik } from "formik";
@@ -10,12 +10,10 @@ import {
 } from "../../../inc/components/commons";
 import { useAuth, useUpdateUser } from "../../../inc/hooks/auth";
 import { setCookie } from "../../../inc/utils";
+import { AuthContext } from "../../../inc/context/auth";
 
 const SettingsForm = () => {
-  /**
-   * RRD Helpers
-   */
-  const navigate = useNavigate();
+  const { setUser } = useContext(AuthContext);
 
   // Custom Hooks
   const { user } = useAuth();
@@ -34,6 +32,7 @@ const SettingsForm = () => {
     };
 
     setCookie("bonx-user", cookieData);
+    setUser(cookieData);
     SuccessMessage(data.msg);
     resetForm();
   };
@@ -48,7 +47,7 @@ const SettingsForm = () => {
    * Triggers When Someone Submits Settings Form
    */
   const onSubmit = (values) => {
-    mutate(values, {
+    mutate([values, user.token], {
       onError,
       onSuccess,
     });

@@ -1,20 +1,23 @@
 import { useMutation, useQuery } from "react-query";
 import { Request, RequestConfig } from "../../config";
 
-const onAddGame = (fields) => {
+const onAddGame = ([fields, token]) => {
+  RequestConfig.game.create.token = token;
   RequestConfig.game.create.data = fields;
   return Request(RequestConfig.game.create);
 };
-const onGetOwnerGames = (fields) => {
-  RequestConfig.games.readOwnerGame.data = fields;
+export const onGetOwnerGames = (token) => {
+  RequestConfig.games.readOwnerGame.token = token;
   return Request(RequestConfig.games.readOwnerGame);
 };
-const onDeleteGame = (id) => {
+const onDeleteGame = ([id, token]) => {
+  RequestConfig.game.delete.token = token;
   // Add ID To Object So It Can Be Appended With URL
   RequestConfig.game.delete.id = id;
   return Request(RequestConfig.game.delete);
 };
-const onEditGame = ([id, fields]) => {
+const onEditGame = ([id, fields, token]) => {
+  RequestConfig.game.update.token = token;
   RequestConfig.game.update.data = fields;
   // Add ID To Object So It Can Be Appended With URL
   RequestConfig.game.update.id = id;
@@ -43,8 +46,8 @@ export const useEditGame = () => {
 export const useDeleteGame = () => {
   return useMutation(onDeleteGame);
 };
-export const useOwnerGames = () => {
-  return useQuery("owner-games", onGetOwnerGames);
+export const useOwnerGames = (token) => {
+  return useQuery(["owner-games", token], () => onGetOwnerGames(token));
 };
 export const useGame = (id) => {
   return useQuery(["game", id], () => onGetGame(id), {

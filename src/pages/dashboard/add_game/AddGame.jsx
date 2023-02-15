@@ -11,6 +11,7 @@ import { GameForm } from "../forms";
 import { useFormik } from "formik";
 import { Dashboard } from "../../../inc/yupSchemas";
 import { useAddGame } from "../../../inc/hooks/games";
+import { useAuth } from "../../../inc/hooks/auth";
 
 const AddGame = () => {
   // States
@@ -24,6 +25,7 @@ const AddGame = () => {
 
   // Custom Hooks
   const { mutate, isLoading } = useAddGame();
+  const { user } = useAuth();
 
   const onSuccess = ({ data, status, response }) => {
     if (status !== 201) return ErrorMessage(response.data.msg);
@@ -41,7 +43,7 @@ const AddGame = () => {
    * Triggers When Someone Submits Game Form
    */
   const onSubmit = (values) => {
-    mutate(values, {
+    mutate([values, user.token], {
       onError,
       onSuccess,
     });

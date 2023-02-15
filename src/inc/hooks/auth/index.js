@@ -11,7 +11,8 @@ const onLogin = (credentials) => {
   RequestConfig.auth.login.data = credentials;
   return Request(RequestConfig.auth.login);
 };
-const onUpdate = (credentials) => {
+export const onUpdate = ([credentials, token]) => {
+  RequestConfig.auth.update.token = token;
   RequestConfig.auth.update.data = credentials;
   return Request(RequestConfig.auth.update);
 };

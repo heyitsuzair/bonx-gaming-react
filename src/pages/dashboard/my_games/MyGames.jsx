@@ -8,12 +8,14 @@ import { useNavigate } from "react-router-dom";
 import { RoutesPath } from "../../../inc/config";
 import { useOwnerGames } from "../../../inc/hooks/games";
 import TableRow from "./TableRow";
+import { useAuth } from "../../../inc/hooks/auth";
 
 const MyGames = () => {
   const navigate = useNavigate();
 
   // Custom Hooks
-  const { data: games, isLoading } = useOwnerGames();
+  const { user } = useAuth();
+  const { data: games, isLoading } = useOwnerGames(user.token);
 
   return (
     <div id="my-games" className="min-h-screen">

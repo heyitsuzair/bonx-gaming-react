@@ -34,18 +34,26 @@ const Main = ({ setProgress }) => {
           <SidebarDashboard />
         </div>
         <div className="col-span-12 lg:col-span-9 my-5">
-          <Routes>
-            <Route path={RoutesPath.dashboard.myGames} element={<MyGames />} />
-            <Route path={RoutesPath.dashboard.addGame} element={<AddGame />} />
-            <Route
-              path={RoutesPath.dashboard.settings}
-              element={<Settings />}
-            />
-            <Route
-              path={RoutesPath.dashboard.myGames + "/:id"}
-              element={<EditGame />}
-            />
-          </Routes>
+          {user && (
+            <Routes>
+              <Route
+                path={RoutesPath.dashboard.myGames}
+                element={<MyGames />}
+              />
+              <Route
+                path={RoutesPath.dashboard.addGame}
+                element={<AddGame />}
+              />
+              <Route
+                path={RoutesPath.dashboard.settings}
+                element={<Settings />}
+              />
+              <Route
+                path={RoutesPath.dashboard.myGames + "/:id"}
+                element={<EditGame />}
+              />
+            </Routes>
+          )}
         </div>
       </div>
     </div>

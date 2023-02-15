@@ -13,6 +13,7 @@ import { useFormik } from "formik";
 import { Dashboard } from "../../../inc/yupSchemas";
 import { useEditGame, useGame } from "../../../inc/hooks/games";
 import { bytesToMbs } from "../../../inc/utils";
+import { useAuth } from "../../../inc/hooks/auth";
 
 const EditGame = () => {
   const { id } = useParams();
@@ -31,6 +32,7 @@ const EditGame = () => {
 
   // Custom Hooks
   const { mutate, isLoading: isGameUpdating } = useEditGame();
+  const { user } = useAuth();
 
   const onSuccess = ({ data, status, response }) => {
     if (status !== 200) return ErrorMessage(response.data.msg);
@@ -48,7 +50,7 @@ const EditGame = () => {
    * Triggers When Someone Submits Game Form
    */
   const onSubmit = (values) => {
-    mutate([id, values], {
+    mutate([id, values, user.token], {
       onError,
       onSuccess,
     });

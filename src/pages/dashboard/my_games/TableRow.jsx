@@ -11,6 +11,7 @@ import { RoutesPath } from "../../../inc/config";
 import { useDeleteGame } from "../../../inc/hooks/games";
 import { substring, bytesToMbs } from "../../../inc/utils";
 import { useQueryClient } from "react-query";
+import { useAuth } from "../../../inc/hooks/auth";
 
 const TableRow = ({
   _id,
@@ -28,6 +29,8 @@ const TableRow = ({
    */
   const queryClient = useQueryClient();
 
+  const { user } = useAuth();
+
   // Custom Hooks
   const { mutate, isLoading } = useDeleteGame();
 
@@ -35,7 +38,7 @@ const TableRow = ({
     if (status !== 200) return ErrorMessage(response.data.msg);
     SuccessMessage(data.msg);
 
-    queryClient.setQueryData("owner-games", (oldData) => {
+    queryClient.setQueryData(["owner-games", user.token], (oldData) => {
       /**
        * Filter Deleted Game
        */
@@ -67,7 +70,7 @@ const TableRow = ({
    */
 
   const onDeleteGame = (id) => {
-    mutate(id, {
+    mutate([id, user.token], {
       onError,
       onSuccess,
     });
