@@ -25,7 +25,7 @@ const Main = ({ setProgress }) => {
     setTimeout(() => {
       setProgress(0);
     }, 500);
-  }, [location.pathname]);
+  }, [location.pathname, user]);
 
   return (
     <div id="dashboard">

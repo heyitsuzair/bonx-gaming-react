@@ -17,6 +17,7 @@ import ScrollToTop from "./ScrollToTop";
 import DisableClick from "./DisableClick";
 import { Login, Signup } from "./pages/auth";
 import { Main } from "./pages/dashboard";
+import AuthState from "./inc/context/auth";
 
 function App() {
   /**
@@ -28,50 +29,52 @@ function App() {
     <Body>
       <ProgressBar progress={progress} />
       <Router>
-        <Navbar setProgress={setProgress} />
-        <ReactToastifyContainer />
-        <ScrollToTop />
-        <DisableClick />
-        <Routes>
-          {/* <-------------- App --------------> */}
-          <Route
-            path={RoutesPath.home}
-            element={<Home setProgress={setProgress} />}
-          />
-          <Route
-            path={RoutesPath.contact}
-            element={<Contact setProgress={setProgress} />}
-          />
-          <Route
-            path={RoutesPath.games}
-            element={<Games setProgress={setProgress} />}
-          />
-          <Route
-            path={`${RoutesPath.games}/:id`}
-            element={<GameDetails setProgress={setProgress} />}
-          />
-          {/* <-------------- App --------------> */}
+        <AuthState>
+          <Navbar setProgress={setProgress} />
+          <ReactToastifyContainer />
+          <ScrollToTop />
+          <DisableClick />
+          <Routes>
+            {/* <-------------- App --------------> */}
+            <Route
+              path={RoutesPath.home}
+              element={<Home setProgress={setProgress} />}
+            />
+            <Route
+              path={RoutesPath.contact}
+              element={<Contact setProgress={setProgress} />}
+            />
+            <Route
+              path={RoutesPath.games}
+              element={<Games setProgress={setProgress} />}
+            />
+            <Route
+              path={`${RoutesPath.games}/:id`}
+              element={<GameDetails setProgress={setProgress} />}
+            />
+            {/* <-------------- App --------------> */}
 
-          {/* <-------------- Auth --------------> */}
-          <Route
-            path={RoutesPath.signup}
-            element={<Signup setProgress={setProgress} />}
-          />
-          <Route
-            path={RoutesPath.login}
-            element={<Login setProgress={setProgress} />}
-          />
-          {/* <-------------- Auth --------------> */}
+            {/* <-------------- Auth --------------> */}
+            <Route
+              path={RoutesPath.signup}
+              element={<Signup setProgress={setProgress} />}
+            />
+            <Route
+              path={RoutesPath.login}
+              element={<Login setProgress={setProgress} />}
+            />
+            {/* <-------------- Auth --------------> */}
 
-          {/* <-------------- Dashboard --------------> */}
-          <Route
-            path={RoutesPath.dashboard.index}
-            element={<Main setProgress={setProgress} />}
-          />
-          {/* <-------------- Dashboard --------------> */}
-        </Routes>
-        <PreFooter />
-        <MainFooter />
+            {/* <-------------- Dashboard --------------> */}
+            <Route
+              path={RoutesPath.dashboard.index}
+              element={<Main setProgress={setProgress} />}
+            />
+            {/* <-------------- Dashboard --------------> */}
+          </Routes>
+          <PreFooter />
+          <MainFooter />
+        </AuthState>
       </Router>
     </Body>
   );

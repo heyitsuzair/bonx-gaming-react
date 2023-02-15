@@ -1,8 +1,7 @@
+import { useContext } from "react";
 import { useMutation } from "react-query";
-import { useNavigate } from "react-router-dom";
-import { Request, RequestConfig, RoutesPath } from "../../config";
-import { readCookie } from "../../utils";
-import { deleteCookie } from "../../utils/deleteCookie";
+import { Request, RequestConfig } from "../../config";
+import { AuthContext } from "../../context/auth";
 
 const onSignUp = (credentials) => {
   RequestConfig.auth.signup.data = credentials;
@@ -28,17 +27,8 @@ export const useUpdateUser = () => {
 };
 
 export const useAuth = () => {
-  /**
-   * RRD Helpers
-   */
-  const navigate = useNavigate();
+  const authContext = useContext(AuthContext);
+  const { logout, user, setUser } = authContext;
 
-  const user = readCookie("bonx-user");
-
-  const logout = () => {
-    deleteCookie("bonx-user");
-    navigate(RoutesPath.home);
-  };
-
-  return { logout, user };
+  return { logout, user, setUser };
 };

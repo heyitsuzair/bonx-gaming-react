@@ -3,7 +3,6 @@ import {
   ErrorMessage,
   InputPlain,
   PlainButton,
-  SuccessMessage,
   Text6Xl,
   TextMd,
 } from "../../../inc/components/commons";
@@ -11,11 +10,12 @@ import { useFormik } from "formik";
 import { Auth } from "../../../inc/yupSchemas/auth";
 import { useNavigate } from "react-router";
 import { RoutesPath } from "../../../inc/config";
-import { useLogin } from "../../../inc/hooks/auth";
+import { useAuth, useLogin } from "../../../inc/hooks/auth";
 import { setCookie } from "../../../inc/utils";
 
 const LoginForm = () => {
   const { mutate, isLoading } = useLogin();
+  const { setUser } = useAuth();
 
   /**
    * RRD Helpers
@@ -26,12 +26,11 @@ const LoginForm = () => {
     if (status !== 200) return ErrorMessage(response.data.msg);
     setCookie("bonx-user", data);
     navigate(RoutesPath.dashboard.main + RoutesPath.dashboard.myGames);
-    navigator.vibrate(1000);
+    setUser(data);
   };
 
   const onError = ({ message }) => {
     ErrorMessage(message);
-    navigator.vibrate(1000);
   };
 
   /**
