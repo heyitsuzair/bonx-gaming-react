@@ -26,7 +26,7 @@ const GameDetails = () => {
     // link.setAttribute("href", data?.data.game_file.filename); //replace "file" with link to file you want to download
     link.setAttribute(
       "href",
-      "https://res.cloudinary.com/digaxe3sc/raw/upload/v1676473354/gaming-mnrn/game_files/acxuidhtavi7x3rwhj9m"
+      data?.data.game_file.filename.replace("http", "https")
     ); //replace "file" with link to file you want to download
     link.setAttribute("download", "game_file");
     link.click(); //virtually click <a> element to initiate download
